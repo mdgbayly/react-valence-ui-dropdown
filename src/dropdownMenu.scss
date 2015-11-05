@@ -1,0 +1,19 @@
+.dropdown-list-show {
+	@include vui-dropdown-list-show;
+}
+
+.dropdown-list-hide {
+	@include vui-dropdown-list;
+}
+
+.dropdown-arrow-icon::before {
+	@include vui-dropdown-arrow-icon;
+}
+
+.dropdown-item {
+	@include vui-dropdown-item;
+}
+
+.dropdown-item.disabled {
+	@include vui-dropdown-item-disabled;
+}

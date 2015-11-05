@@ -1,0 +1,27 @@
+{
+  "name": "react-vui-dropdown",
+  "description": "React component for a dropdown menu that uses VUI Dropdown Styling",
+  "main": "index.js",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l"
+  ],
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "homepage": "https://github.com/Brightspace/react-vui-dropdown",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vui-dropdown": "~0.0.1"
+  }
+}

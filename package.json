@@ -1,0 +1,47 @@
+{
+  "name": "react-vui-dropdown",
+  "version": "0.0.1",
+  "description": "React component for a dropdown menu that uses VUI Dropdown Styling",
+  "directories": {
+    "test": "test"
+  },
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build:js": "eslint src && babel --presets react ./src --out-dir ./dist",
+    "build:sass": "node-sass --output-style expanded dropdownMenu.scss dist/dropdownMenu.css",
+    "build": "npm run build:js && npm run build:sass",
+    "pretest": "npm run build",
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brightspace/react-vui-dropdown.git"
+  },
+  "keywords": [
+    "d2l",
+    "valence-ui",
+    "vui",
+    "menu",
+    "dropdown",
+    "context"
+  ],
+  "author": "D2L Coproration",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Brightspace/react-vui-dropdown/issues"
+  },
+  "homepage": "https://github.com/Brightspace/react-vui-dropdown",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-cli": "^6.0.15",
+    "bower": "^1.6.5",
+    "eslint": "^1.8.0",
+    "eslint-plugin-react": "^3.6.3",
+    "node-sass": "^3.4.1",
+    "react": "^0.14.2",
+    "rimraf": "^2.4.3"
+  }
+}
