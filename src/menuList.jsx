@@ -15,9 +15,11 @@ var MenuList = React.createClass({
 
 	renderListItems: function() {
 		var items = [];
-		for (var i = 0; i < this.props.items.length; i++) {
-			var item = this.props.items[i];
-			items.push(<li><MenuItem text={item.text} onClick={item.onClick} disabled={item.disabled} /></li>);
+		if (this.props.items) {
+				for (var i = 0; i < this.props.items.length; i++) {
+					var item = this.props.items[i];
+					items.push(<li><MenuItem text={item.text} onClick={item.onClick} disabled={item.disabled} /></li>);
+				}
 		}
 		return items;
 	}
