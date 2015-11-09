@@ -6,9 +6,9 @@ var React = require('react'),
 var MenuItem = React.createClass({
 
 	propTypes: {
-		text: React.PropTypes.stringValue,
+		text: React.PropTypes.string,
 		onClick: React.PropTypes.func,
-		disabled: React.PropTypes.boolValue
+		disabled: React.PropTypes.bool
 	},
 
 	getDefaultProps: function() {
