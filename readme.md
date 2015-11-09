@@ -10,7 +10,7 @@ NPM Install
 npm install react-vui-dropdown
 ```
 
-Bower Installation
+Bower Install
 ```bash
 bower install react-vui-dropdown
 ```
