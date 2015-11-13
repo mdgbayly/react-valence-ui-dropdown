@@ -2,7 +2,7 @@
 
 A react component for a dropdown, or context, menu. It is intended for use in applications used in the Brightspace LMS.
 <br />
-[![travis badge](https://travis-ci.org/Brightspace/react-vui-dropdown.svg?branch=master)](https://travis-ci.org/Brightspace/react-vui-dropdown)
+[![travis badge](https://travis-ci.org/Brightspace/react-valence-ui-dropdown.svg?branch=master)](https://travis-ci.org/Brightspace/react-valence-ui-dropdown)
 
 ## Installation
 NPM Install
