@@ -5,9 +5,19 @@ var React = require('react'),
 
 var MenuList = React.createClass({
 
+	propTypes: {
+		isListVisible: React.PropTypes.bool
+	},
+
 	render: function() {
+		var listClassName;
+		if (this.props.isListVisible) {
+			listClassName = 'dropdown-list-show';
+		} else {
+			listClassName = 'dropdown-list-hidden';
+		}
 		return (
-			<ul className="dropdown-list-show">
+			<ul className={listClassName}>
 				{this.renderListItems()}
 			</ul>
 		);
@@ -18,7 +28,7 @@ var MenuList = React.createClass({
 		if (this.props.items) {
 				for (var i = 0; i < this.props.items.length; i++) {
 					var item = this.props.items[i];
-					items.push(<li><MenuItem text={item.text} onClick={item.onClick} disabled={item.disabled} /></li>);
+					items.push(<li><MenuItem text={item.text} onClick={item.onClick} isDisabled={item.isDisabled} /></li>);
 				}
 		}
 		return items;
