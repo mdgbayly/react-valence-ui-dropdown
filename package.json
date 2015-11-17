@@ -14,9 +14,10 @@
     "build": "npm run build:js && npm run build:sass",
     "pretest": "npm run build",
     "postinstall": "bower install",
+    "report-coverage": "coveralls < ./coverage/lcov.info",
     "test:lint:css": "csslint ./dist/dropdownMenu.css",
     "test:lint:js": "eslint --ext .js --ext .jsx ./src",
-    "test:unit": "jest",
+    "test:unit": "jest --coverage",
     "test": "npm run build && npm run test:lint:css && npm run test:lint:js && npm run test:unit"
   },
   "repository": {
@@ -48,6 +49,7 @@
     "babel-cli": "^6.0.15",
     "babel-jest": "^5.3.0",
     "classnames": "^2.2.0",
+    "coveralls": "^2.11.4",
     "csslint": "^0.10.0",
     "eslint": "^1.8.0",
     "eslint-config-brightspace": "0.0.3",
@@ -64,6 +66,12 @@
     "testDirectoryName": "test/unit",
     "unmockedModulePathPatterns": [
       "react"
-    ]
+    ],
+    "collectCoverageOnlyFrom": {
+      "index.js": true,
+      "dist/menuItem.js": true,
+      "dist/dropdownMenu.js": true,
+      "dist/menuList.js": true
+    }
   }
 }
