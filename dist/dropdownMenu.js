@@ -8,40 +8,29 @@ var Menu = React.createClass({
 
 	getInitialState: function getInitialState() {
 		return {
-			listVisible: false
+			isListVisible: false
 		};
 	},
 
 	show: function show() {
 		this.setState({
-			listVisible: true
+			isListVisible: true
 		});
 		document.addEventListener('click', this.hide);
 	},
 
 	hide: function hide() {
 		this.setState({
-			listVisible: false
+			isListVisible: false
 		});
 		document.removeEventListener('click', this.hide);
 	},
 
 	render: function render() {
-		var listClassName;
-		if (this.state.listVisible) {
-			listClassName = '';
-		} else {
-			listClassName = 'dropdown-list-hide';
-		}
-
 		return React.createElement(
 			'div',
 			{ className: 'dropdown-arrow-icon', onClick: this.show },
-			React.createElement(
-				'div',
-				{ className: listClassName },
-				React.createElement(MenuList, { items: this.props.items })
-			)
+			React.createElement(MenuList, { isListVisible: this.state.isListVisible, items: this.props.items })
 		);
 	}
 });

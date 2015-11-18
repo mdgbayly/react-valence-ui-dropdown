@@ -17,7 +17,7 @@ describe( 'menuList tests', function() {
 			}
 		];
 		var menuListTestDOM = TestUtils.renderIntoDocument(
-			<DropdownMenu.MenuList/>
+			<DropdownMenu.MenuList isListVisible={true}/>
 		);
 
 		expect(ReactDOM.findDOMNode(menuListTestDOM).className).toBe('dropdown-list-show');

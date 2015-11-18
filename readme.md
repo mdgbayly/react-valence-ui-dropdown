@@ -28,7 +28,7 @@ The menu takes a list of objects to represent the menu items, each of the menu i
 <ul>
 	<li>text - this display text</li>
 	<li>onClick - a function to be called when the item is clicked</li>
-	<li>disabled - (boolean) if true the menu item will be shown in a disabled state and will not be clickable.</li>
+	<li>isDisabled - (boolean) if true the menu item will be shown in a disabled state and will not be clickable.</li>
 </ul>
 
 #### Full Menu Control
@@ -38,12 +38,12 @@ var DropdownMenu = require('react-vui-dropdwon');
 var menuItems = [
 	{
 		text: 'First Menu text'
-		disabled: false,
+		isDisabled: false,
 		onClick: myClickFunc
 	},
 	{
 		text: 'Second Menu text'
-		disabled: true,
+		isDisabled: true,
 		onClick: myClickFunc2
 	}
 ]
@@ -58,12 +58,12 @@ var DropdownMenu = require('react-vui-dropdown');
 var menuItems = [
 	{
 		text: 'First Menu text'
-		disabled: false,
+		isDisabled: false,
 		onClick: myClickFunc
 	},
 	{
 		text: 'Second Menu text'
-		disabled: true,
+		isDisabled: true,
 		onClick: myClickFunc2
 	}
 ]

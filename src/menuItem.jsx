@@ -6,24 +6,24 @@ var MenuItem = React.createClass({
 	propTypes: {
 		text: React.PropTypes.string,
 		onClick: React.PropTypes.func,
-		disabled: React.PropTypes.bool
+		isDisabled: React.PropTypes.bool
 	},
 
 	getDefaultProps: function() {
 		return {
-			disabled: false
+			isDisabled: false
 		};
 	},
 
 	select: function( event ) {
-		if ( !this.props.disabled ) {
+		if ( !this.props.isDisabled ) {
 			this.props.onClick();
 		}
 		event.stopPropagation();
 	},
 
 	render: function() {
-		var className = classNames( 'dropdown-item', { disabled: this.props.disabled } );
+		var className = classNames( 'dropdown-item', { disabled: this.props.isDisabled } );
 		return (
 			<div className={className} onClick={this.select} >
 				{this.props.text}

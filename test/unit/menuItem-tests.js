@@ -32,7 +32,7 @@ describe('menuItem', function() {
 
 	it( 'menu item is disabled', function() {
 		var onClickCallback = jest.genMockFunction();
-		var menuItemTest = <DropdownMenu.MenuItem onClick={onClickCallback} disabled={true}/>;
+		var menuItemTest = <DropdownMenu.MenuItem onClick={onClickCallback} isDisabled={true}/>;
 		var menuItemTestDOM = TestUtils.renderIntoDocument(
 			menuItemTest
 		);

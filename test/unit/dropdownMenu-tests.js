@@ -23,7 +23,7 @@ describe( 'menu tests', function() {
 		var menuTestDOM = TestUtils.renderIntoDocument(
 			<DropdownMenu.DropdownMenu/>
 		);
-		expect(menuTestDOM.state.listVisible).toBe(false);
+		expect(menuTestDOM.state.isListVisible).toBe(false);
 	});
 
 	it( 'menu list is visible', function() {
@@ -34,6 +34,6 @@ describe( 'menu tests', function() {
 		TestUtils.Simulate.click(
 			ReactDOM.findDOMNode(menuTestDOM)
 		);
-		expect(menuTestDOM.state.listVisible).toBe(true);
+		expect(menuTestDOM.state.isListVisible).toBe(true);
 	});
 });
