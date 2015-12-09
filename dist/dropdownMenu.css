@@ -54,10 +54,12 @@
 
 .dropdown-item {
   padding: 8px 15px 8px 15px;
+  outline-style: none;
 }
 
 .dropdown-item.disabled {
   padding: 8px 15px 8px 15px;
+  outline-style: none;
   color: #7c8695;
 }
 

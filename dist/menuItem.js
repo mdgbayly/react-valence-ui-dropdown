@@ -7,15 +7,24 @@ var MenuItem = React.createClass({
 	displayName: 'MenuItem',
 
 	propTypes: {
+		id: React.PropTypes.number,
 		text: React.PropTypes.string,
-		onClick: React.PropTypes.func,
-		isDisabled: React.PropTypes.bool
+		isDisabled: React.PropTypes.bool,
+		isSelected: React.PropTypes.bool,
+		selectFocus: React.PropTypes.func
 	},
 
 	getDefaultProps: function getDefaultProps() {
 		return {
-			isDisabled: false
+			isDisabled: false,
+			isSelected: false
 		};
+	},
+
+	componentDidUpdate: function componentDidUpdate() {
+		if (this.props.isSelected) {
+			React.findDOMNode(this.refs.listItem).focus();
+		}
 	},
 
 	select: function select(event) {
@@ -25,11 +34,25 @@ var MenuItem = React.createClass({
 		event.stopPropagation();
 	},
 
+	onMouseMove: function onMouseMove() {
+		if (this.props.selectFocus && !this.props.isSelected) {
+			this.props.selectFocus(this.props.id);
+		}
+	},
+
 	render: function render() {
-		var className = classNames('dropdown-item', { disabled: this.props.isDisabled });
+		var className = classNames('dropdown-item', { disabled: this.props.isDisabled }, { selected: this.props.isSelected });
 		return React.createElement(
-			'div',
-			{ className: className, onClick: this.select },
+			'li',
+			{
+				ref: 'listItem',
+				className: className,
+				onClick: this.select,
+				role: 'menuitem',
+				tabIndex: '-1',
+				onMouseMove: this.onMouseMove,
+				'aria-disabled': this.props.isDisabled
+			},
 			this.props.text
 		);
 	}

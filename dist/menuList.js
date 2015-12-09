@@ -7,7 +7,17 @@ var MenuList = React.createClass({
 	displayName: 'MenuList',
 
 	propTypes: {
-		isListVisible: React.PropTypes.bool
+		isListVisible: React.PropTypes.bool,
+		menuItems: React.PropTypes.array,
+		selectedItem: React.PropTypes.number,
+		selectFocus: React.PropTypes.func
+	},
+
+	selectItem: function selectItem() {
+		if (this.props.selectedItem !== -1) {
+			var listNode = React.findDOMNode(this.refs.menuList);
+			listNode.children[this.props.selectedItem].click();
+		}
 	},
 
 	render: function render() {
@@ -19,7 +29,7 @@ var MenuList = React.createClass({
 		}
 		return React.createElement(
 			'ul',
-			{ className: listClassName },
+			{ className: listClassName, ref: 'menuList', role: 'menulist', 'aria-visible': this.props.isListVisible },
 			this.renderListItems()
 		);
 	},
@@ -29,11 +39,14 @@ var MenuList = React.createClass({
 		if (this.props.items) {
 			for (var i = 0; i < this.props.items.length; i++) {
 				var item = this.props.items[i];
-				items.push(React.createElement(
-					'li',
-					null,
-					React.createElement(MenuItem, { text: item.text, onClick: item.onClick, isDisabled: item.isDisabled })
-				));
+				items.push(React.createElement(MenuItem, {
+					text: item.text,
+					onClick: item.onClick,
+					isDisabled: item.isDisabled,
+					isSelected: i === this.props.selectedItem,
+					selectFocus: this.props.selectFocus,
+					id: i
+				}));
 			}
 		}
 		return items;
