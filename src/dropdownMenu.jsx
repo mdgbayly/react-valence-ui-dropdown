@@ -42,6 +42,8 @@ var Menu = React.createClass( {
 		if (event.keyCode === keys.ENTER || event.keyCode === keys.SPACE) {
 			if (this.state.isListVisible) {
 				this.selectItem();
+				this.hide();
+				React.findDOMNode(this.refs.menuButton).focus();
 			} else {
 				this.show();
 			}
@@ -85,8 +87,12 @@ var Menu = React.createClass( {
 	},
 
 	selectItem: function() {
-		this.refs.menuList.selectItem();
-
+		if ( this.state.selectedItem !== -1) {
+			let menuItem = this.props.items[this.state.selectedItem];
+			if ( !menuItem.isDisabled ) {
+				menuItem.onClick();
+			}
+		}
 	},
 
 	selectFocus: function(index) {

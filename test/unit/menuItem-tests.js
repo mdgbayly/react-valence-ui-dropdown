@@ -54,4 +54,18 @@ describe('menuItem', function() {
 		expect(ReactDOM.findDOMNode(menuItemTestDOM).className).toBe('dropdown-item');
 
 	});
+
+	it ( 'menu item mouse move', function() {
+		var itemId = 0;
+		var focusMock = function( id ) {
+			itemId = id;
+		};
+		var menuItemTestDOM = TestUtils.renderIntoDocument(
+			<DropdownMenu.MenuItem text="menu test" id={55} selectFocus={focusMock}/>
+		);
+		TestUtils.Simulate.mouseMove(
+			ReactDOM.findDOMNode(menuItemTestDOM)
+		);
+		expect(itemId).toBe(55);
+	});
 });

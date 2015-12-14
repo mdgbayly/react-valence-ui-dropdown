@@ -8,16 +8,9 @@ var MenuList = React.createClass({
 
 	propTypes: {
 		isListVisible: React.PropTypes.bool,
-		menuItems: React.PropTypes.array,
+		items: React.PropTypes.array,
 		selectedItem: React.PropTypes.number,
 		selectFocus: React.PropTypes.func
-	},
-
-	selectItem: function selectItem() {
-		if (this.props.selectedItem !== -1) {
-			var listNode = React.findDOMNode(this.refs.menuList);
-			listNode.children[this.props.selectedItem].click();
-		}
 	},
 
 	render: function render() {
