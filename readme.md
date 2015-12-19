@@ -32,7 +32,7 @@ Import the style:
 The dropdown optionally takes the following properties:
 
 * `text`: the text to be displayed in the dropdown button
-* `disanled`: indicated whether the dropdown button is enabled
+* `disabled`: indicated whether the dropdown button is enabled
 * `items`: an array of items for the menu
 
 ```javascript
