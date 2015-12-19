@@ -1,0 +1,12 @@
+
+.vui-dropdown-menu-item > a {
+	@include vui-dropdown-menu-item-link;
+}
+
+.vui-dropdown-menu-item.vui-dropdown-menu-item-focus {
+	@include vui-dropdown-menu-item-focus;
+}
+
+.vui-dropdown-menu-item-disabled > a {
+	@include vui-dropdown-menu-item-link-disabled;
+}

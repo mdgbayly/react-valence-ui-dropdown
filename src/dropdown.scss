@@ -1,0 +1,45 @@
+
+.vui-dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+.vui-dropdown > button {
+	@include vui-button;
+}
+
+.vui-dropdown-primary > button {
+	@include vui-button-primary;
+}
+
+.vui-dropdown > button > span {
+
+	background-image: $vui-dropdown-ferrite;
+	background-position: right center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	padding-right: px-to-base-rem(35px);
+	min-height: 10px;
+	min-width: 16px;
+
+	[dir='rtl'] & {
+		background-position: left center;
+		padding-left: px-to-base-rem(35px);
+		padding-right: 0;
+	}
+
+}
+
+.vui-dropdown-primary > button > span {
+	background-image: $vui-dropdown-white;
+}
+
+.vui-dropdown-notext {
+
+	padding-right: 0;
+
+	[dir='rtl'] & {
+		padding-left: 0;
+	}
+
+}
