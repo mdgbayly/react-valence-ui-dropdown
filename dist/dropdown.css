@@ -1,0 +1,230 @@
+@import url(https://s.brightspace.com/lib/fonts/0.2.0/fonts.css);
+.vui-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.vui-dropdown > button {
+  color: #565a5c;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.02rem;
+  margin: 0;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  min-height: calc(2rem + 2px);
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+}
+
+.vui-dropdown > button, .vui-dropdown > button:visited, .vui-dropdown > button:link, .vui-dropdown > button:hover, .vui-dropdown > button:focus, .vui-dropdown > button.vui-disabled:hover, .vui-dropdown > button.vui-disabled:focus, .vui-dropdown > button[disabled]:hover, .vui-dropdown > button[disabled]:focus {
+  background: linear-gradient(to bottom, #f9fafb 0%, #f2f3f5 100%);
+  border: 1px solid #d3d9e3;
+  color: #565a5c;
+  outline: none;
+  text-decoration: none;
+}
+
+.vui-dropdown > button:after {
+  content: " ";
+  width: 0;
+}
+
+.vui-dropdown > button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.vui-dropdown > button.vui-disabled, .vui-dropdown > button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.vui-dropdown > button:hover {
+  border-color: #b9c2d0;
+  background: linear-gradient(to bottom, #f9fafb 0%, #e6eaf0 100%);
+}
+
+.vui-dropdown > button:focus {
+  border-color: #b9c2d0;
+  background: #d3d9e3;
+}
+
+.vui-dropdown-primary > button {
+  color: #565a5c;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.02rem;
+  margin: 0;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  min-height: calc(2rem + 2px);
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+}
+
+.vui-dropdown-primary > button, .vui-dropdown-primary > button:visited, .vui-dropdown-primary > button:link, .vui-dropdown-primary > button:hover, .vui-dropdown-primary > button:focus, .vui-dropdown-primary > button.vui-disabled:hover, .vui-dropdown-primary > button.vui-disabled:focus, .vui-dropdown-primary > button[disabled]:hover, .vui-dropdown-primary > button[disabled]:focus {
+  background: #006fbf;
+  border: 1px solid #1c5295;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+
+.vui-dropdown-primary > button:after {
+  content: " ";
+  width: 0;
+}
+
+.vui-dropdown-primary > button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.vui-dropdown-primary > button.vui-disabled, .vui-dropdown-primary > button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.vui-dropdown-primary > button:hover {
+  border-color: #006fbf;
+  background: #006fbf;
+}
+
+.vui-dropdown-primary > button:focus {
+  border-color: #1c5295;
+  background: #1c5295;
+}
+
+.vui-dropdown > button > span {
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2210%22%20viewBox%3D%220%200%2016%2010%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3E_expand%3C%2Ftitle%3E%3Cpath%20d%3D%22M15.57.978a1.478%201.478%200%200%200-2.08%200L8%206.468%202.51.977a1.476%201.476%200%200%200-2.08%200%201.476%201.476%200%200%200%200%202.082l6.493%206.493A1.47%201.47%200%200%200%208%209.98c.39.008.782-.132%201.078-.427L15.57%203.06a1.478%201.478%200%200%200%200-2.082%22%20fill%3D%22%23565A5C%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+  background-position: right center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding-right: 1.75rem;
+  min-height: 10px;
+  min-width: 16px;
+}
+
+[dir='rtl'] .vui-dropdown > button > span {
+  background-position: left center;
+  padding-left: 1.75rem;
+  padding-right: 0;
+}
+
+.vui-dropdown-primary > button > span {
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2210%22%20viewBox%3D%220%200%2016%2010%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3E_expand%3C%2Ftitle%3E%3Cpath%20d%3D%22M15.57.978a1.478%201.478%200%200%200-2.08%200L8%206.468%202.51.977a1.476%201.476%200%200%200-2.08%200%201.476%201.476%200%200%200%200%202.082l6.493%206.493A1.47%201.47%200%200%200%208%209.98c.39.008.782-.132%201.078-.427L15.57%203.06a1.478%201.478%200%200%200%200-2.082%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.vui-dropdown-notext {
+  padding-right: 0;
+}
+
+[dir='rtl'] .vui-dropdown-notext {
+  padding-left: 0;
+}
+
+.vui-dropdown-menu {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 12px 0 #d3d9e3;
+  min-width: 12.5rem;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 2.6rem;
+  z-index: 100;
+}
+
+.vui-dropdown-menu > ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vui-dropdown-menu > ul > li {
+  border-top: 1px solid #d3d9e3;
+  border-left: 1px solid #d3d9e3;
+  border-right: 1px solid #d3d9e3;
+  text-align: center;
+}
+
+.vui-dropdown-menu > ul > li:first-child {
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+}
+
+.vui-dropdown-menu > ul > li:last-child {
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  border-bottom: 1px solid #d3d9e3;
+}
+
+[dir="rtl"] .vui-dropdown-menu {
+  right: 0;
+}
+
+.vui-dropdown-menu-visible {
+  display: inline-block;
+}
+
+.vui-dropdown-menu-item > a {
+  display: inline-block;
+  line-height: 1.5rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  width: 100%;
+}
+
+.vui-dropdown-menu-item > a, .vui-dropdown-menu-item > a:visited, .vui-dropdown-menu-item > a:link, .vui-dropdown-menu-item > a:active {
+  color: #006fbf;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vui-dropdown-menu-item > a:hover, .vui-dropdown-menu-item > a:focus {
+  color: #1c5295;
+  text-decoration: underline;
+  outline-width: 0;
+}
+
+.vui-dropdown-menu-item > a:focus, .vui-dropdown-menu-item > a:hover {
+  color: #006fbf;
+  text-decoration: none;
+}
+
+.vui-dropdown-menu-item.vui-dropdown-menu-item-focus {
+  background-color: #f2f8fc;
+}
+
+.vui-dropdown-menu-item.vui-dropdown-menu-item-focus, .vui-dropdown-menu-item.vui-dropdown-menu-item-focus:last-child {
+  border: 1px solid #99c5e5;
+}
+
+.vui-dropdown-menu-item.vui-dropdown-menu-item-focus + li {
+  border-top-width: 0;
+}
+
+.vui-dropdown-menu-item-disabled > a {
+  cursor: default;
+  opacity: 0.5;
+}

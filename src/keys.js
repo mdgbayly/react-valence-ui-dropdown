@@ -1,4 +1,4 @@
-export default {
+module.exports = {
 	ENTER: 13,
 	ESCAPE: 27,
 	SPACE: 32,

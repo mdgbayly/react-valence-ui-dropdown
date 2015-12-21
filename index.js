@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.DropdownMenu = require('./dist/dropdownMenu');
-module.exports.MenuList = require('./dist/menuList');
-module.exports.MenuItem = require('./dist/menuItem');
+var dropdown = require('./src/dropdown');
+
+module.exports = dropdown;

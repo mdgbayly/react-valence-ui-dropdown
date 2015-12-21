@@ -1,0 +1,20 @@
+
+.vui-dropdown-menu {
+
+	@include vui-dropdown-menu; 
+
+	display: none;
+	left: 0;
+	position: absolute;
+	top: px-to-base-rem(52px);
+	z-index: 100;
+
+	[dir="rtl"] & {
+		right: 0;
+	}
+
+}
+
+.vui-dropdown-menu-visible {
+	display: inline-block;
+}
