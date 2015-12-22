@@ -29,11 +29,13 @@ Import the style:
 @import "node_modules/react-vui-dropdown/dropdown.scss";
 ```
 
-The dropdown optionally takes the following properties:
+The dropdown takes the following properties:
 
-* `text`: the text to be displayed in the dropdown button
-* `disabled`: indicated whether the dropdown button is enabled
-* `items`: an array of items for the menu
+* `text`: required, the text to be displayed in the dropdown button
+* `isPrimary`: optional flag indicating whether opener is primary button
+* `isTextVisible`: optional flag for whether the text is visible
+* `disabled`: optional flag for whether the dropdown button is enabled
+* `items`: optional array of items for the menu
 
 ```javascript
 var items = [

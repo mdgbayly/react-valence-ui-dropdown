@@ -6,6 +6,15 @@ var React = require('react'),
 
 var Dropdown = React.createClass({
 
+	getDefaultProps: function() {
+		return {
+			disabled: false,
+			isPrimary: false,
+			isTextVisible: true,
+			items: []
+		};
+	},
+
 	getInitialState: function() {
 		return {
 			isMenuVisible: false
@@ -81,9 +90,14 @@ var Dropdown = React.createClass({
 
 	render: function() {
 
+		if (!this.props.text || this.props.text.length === 0) {
+			console.error("'text' is a required property of Dropdown.");
+			return;
+		}
+
 		var contentClass = classNames({
 			'vui-dropdown-text': true,
-			'vui-dropdown-notext': !this.props.text
+			'vui-dropdown-text-hidden': !this.props.isTextVisible
 		});
 
 		var menu = React.createElement(
@@ -104,7 +118,11 @@ var Dropdown = React.createClass({
 			},
 			React.createElement(
 				'span', { className: contentClass },
-				this.props.text
+				React.createElement(
+					'span',
+					{},
+					this.props.text
+				)
 			)
 		);
 
