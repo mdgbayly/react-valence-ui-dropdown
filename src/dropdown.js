@@ -91,7 +91,7 @@ var Dropdown = React.createClass({
 	render: function() {
 
 		if (!this.props.text || this.props.text.length === 0) {
-			console.error("'text' is a required property of Dropdown.");
+			console.error("'text' is a required property of Dropdown."); //eslint-disable-line no-console
 			return;
 		}
 
