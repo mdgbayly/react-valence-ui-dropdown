@@ -34,7 +34,11 @@
 	background-image: $vui-dropdown-white;
 }
 
-.vui-dropdown-notext {
+.vui-dropdown > button > span.vui-dropdown-text-hidden {
+
+	& > span {
+		@include vui-offscreen;
+	}
 
 	padding-right: 0;
 

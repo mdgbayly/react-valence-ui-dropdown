@@ -31,7 +31,7 @@ describe('dropdown', function() {
 	it('has class name', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown items={items}/>
+			<Dropdown text="Stuff" items={items}/>
 		);
 
 		expect(ReactDOM.findDOMNode(dropdown).className)
@@ -42,7 +42,7 @@ describe('dropdown', function() {
 	it('has aria haspopup attribute', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown />
+			<Dropdown text="Stuff" />
 		);
 
 		expect(ReactDOM.findDOMNode(dropdown).firstChild.getAttribute('aria-haspopup'))
@@ -53,7 +53,7 @@ describe('dropdown', function() {
 	it('has hidden menu', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown />
+			<Dropdown text="Stuff" />
 		);
 
 		expect(dropdown.state.isMenuVisible).toBe(false);
@@ -63,7 +63,7 @@ describe('dropdown', function() {
 	it('opens when mouse is clicked', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown />
+			<Dropdown text="Stuff" />
 		);
 
 		TestUtils.Simulate.click(
@@ -77,7 +77,7 @@ describe('dropdown', function() {
 	it('does not open when disabled button is clicked', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown disabled />
+			<Dropdown text="Stuff" disabled />
 		);
 
 		TestUtils.Simulate.click(
@@ -91,7 +91,7 @@ describe('dropdown', function() {
 	it ('opens when down arrow is pressed', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown />
+			<Dropdown text="Stuff" />
 		);
 
 		TestUtils.Simulate.keyUp(
@@ -106,7 +106,7 @@ describe('dropdown', function() {
 	it ('does not open if disabled and down arrow is pressed', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown disabled />
+			<Dropdown text="Stuff" disabled />
 		);
 
 		TestUtils.Simulate.keyUp(
@@ -121,7 +121,7 @@ describe('dropdown', function() {
 	it ('does not open if disabled and toggleMenuVisibility is called', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown disabled />
+			<Dropdown text="Stuff" disabled />
 		);
 
 		dropdown.toggleMenuVisibility();
@@ -133,7 +133,7 @@ describe('dropdown', function() {
 	it ('closes when up arrow is pressed', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown />
+			<Dropdown text="Stuff" />
 		);
 
 		TestUtils.Simulate.keyUp(
@@ -155,7 +155,7 @@ describe('dropdown', function() {
 	it('closes when escape key is pressed', function() {
 
 		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown items={items}/>
+			<Dropdown text="Stuff" items={items}/>
 		);
 
 		TestUtils.Simulate.keyUp(
@@ -180,19 +180,8 @@ describe('dropdown', function() {
 			<Dropdown text="Stuff" />
 		);
 
-		expect(ReactDOM.findDOMNode(dropdown).firstChild.firstChild.textContent)
+		expect(ReactDOM.findDOMNode(dropdown).firstChild.firstChild.firstChild.textContent)
 			.toBe("Stuff");
-
-	});
-
-	it ('displays no text in button', function() {
-
-		var dropdown = TestUtils.renderIntoDocument(
-			<Dropdown />
-		);
-
-		expect(ReactDOM.findDOMNode(dropdown).firstChild.firstChild.textContent)
-			.toBe("");
 
 	});
 
@@ -201,7 +190,7 @@ describe('dropdown', function() {
 		it('has class name', function() {
 
 			var dropdown = TestUtils.renderIntoDocument(
-				<Dropdown isPrimary={true} items={items}/>
+				<Dropdown text="Stuff" isPrimary={true} items={items}/>
 			);
 
 			expect(ReactDOM.findDOMNode(dropdown).className)
@@ -210,37 +199,5 @@ describe('dropdown', function() {
 		});
 
 	});
-
-	/*
-
-	it ( 'menu select disabled', function() {
-		var menuTestDOM = TestUtils.renderIntoDocument(
-			<DropdownMenu.DropdownMenu items={menuItems}/>
-		);
-		var someLink = TestUtils.renderIntoDocument(
-			<a href="http://www.brightspace.com">here</a>
-		);
-
-		TestUtils.Simulate.keyDown(
-			ReactDOM.findDOMNode(menuTestDOM),
-			{
-				keyCode: keys.DOWN
-			}
-		);
-		TestUtils.Simulate.keyDown(
-			ReactDOM.findDOMNode(menuTestDOM),
-			{
-				keyCode: keys.DOWN
-			}
-		);
-		TestUtils.Simulate.keyDown(
-			ReactDOM.findDOMNode(menuTestDOM),
-			{
-				keyCode: keys.ENTER
-			}
-		);
-		expect(clickCount).toBe(0);
-	});
-	*/
 
 });

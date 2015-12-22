@@ -2,11 +2,10 @@
 'use strict';
 
 var dropdown = require('./src/dropdown');
-dropdown.Item = require('./src/item');
 
 module.exports = dropdown;
 
-},{"./src/dropdown":3,"./src/item":4}],2:[function(require,module,exports){
+},{"./src/dropdown":3}],2:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -66,6 +65,15 @@ var React = require('react'),
 
 var Dropdown = React.createClass({
 	displayName: 'Dropdown',
+
+	getDefaultProps: function getDefaultProps() {
+		return {
+			disabled: false,
+			isPrimary: false,
+			isTextVisible: true,
+			items: []
+		};
+	},
 
 	getInitialState: function getInitialState() {
 		return {
@@ -140,9 +148,14 @@ var Dropdown = React.createClass({
 
 	render: function render() {
 
+		if (!this.props.text || this.props.text.length === 0) {
+			console.error("'text' is a required property of Dropdown."); //eslint-disable-line no-console
+			return;
+		}
+
 		var contentClass = classNames({
 			'vui-dropdown-text': true,
-			'vui-dropdown-notext': !this.props.text
+			'vui-dropdown-text-hidden': !this.props.isTextVisible
 		});
 
 		var menu = React.createElement(Menu, {
@@ -157,7 +170,7 @@ var Dropdown = React.createClass({
 			onClick: this.toggleMenuVisibility,
 			onKeyDown: this.handleKeyDown,
 			onKeyUp: this.handleKeyUp
-		}, React.createElement('span', { className: contentClass }, this.props.text));
+		}, React.createElement('span', { className: contentClass }, React.createElement('span', {}, this.props.text)));
 
 		var className = classNames({
 			'vui-dropdown': true,
