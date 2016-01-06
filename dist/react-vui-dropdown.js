@@ -56,7 +56,6 @@ module.exports = dropdown;
 }());
 
 },{}],3:[function(require,module,exports){
-'use strict';
 
 var React = require('react'),
     Menu = require('./menu'),
@@ -64,9 +63,8 @@ var React = require('react'),
     keys = require('./keys');
 
 var Dropdown = React.createClass({
-	displayName: 'Dropdown',
 
-	getDefaultProps: function getDefaultProps() {
+	getDefaultProps: function () {
 		return {
 			disabled: false,
 			isPrimary: false,
@@ -75,13 +73,13 @@ var Dropdown = React.createClass({
 		};
 	},
 
-	getInitialState: function getInitialState() {
+	getInitialState: function () {
 		return {
 			isMenuVisible: false
 		};
 	},
 
-	closeMenu: function closeMenu(focusOpener) {
+	closeMenu: function (focusOpener) {
 		this.setState({
 			isMenuVisible: false
 		});
@@ -90,14 +88,14 @@ var Dropdown = React.createClass({
 		}
 	},
 
-	focus: function focus() {
+	focus: function () {
 		var button = React.findDOMNode(this).querySelector('button');
 		button.focus();
 	},
 
-	handleBlur: function handleBlur() {
+	handleBlur: function () {
 		// this trick is necessary due to lack of support for e.relatedTarget
-		setTimeout((function () {
+		setTimeout(function () {
 
 			if (!this.state.isMenuVisible || !document.activeElement) {
 				return;
@@ -114,10 +112,10 @@ var Dropdown = React.createClass({
 			}
 
 			this.closeMenu(false);
-		}).bind(this), 0);
+		}.bind(this), 0);
 	},
 
-	handleKeyUp: function handleKeyUp(e) {
+	handleKeyUp: function (e) {
 
 		if (e.keyCode !== keys.DOWN && e.keyCode !== keys.UP || this.props.disabled) {
 			return;
@@ -130,14 +128,14 @@ var Dropdown = React.createClass({
 		}
 	},
 
-	handleKeyDown: function handleKeyDown(e) {
+	handleKeyDown: function (e) {
 		if (e.keyCode === keys.DOWN || e.keyCode === keys.UP) {
 			// prevent scrolling when up/down arrows pressed
 			e.preventDefault();
 		}
 	},
 
-	toggleMenuVisibility: function toggleMenuVisibility() {
+	toggleMenuVisibility: function () {
 		if (this.props.disabled) {
 			return;
 		}
@@ -146,7 +144,7 @@ var Dropdown = React.createClass({
 		});
 	},
 
-	render: function render() {
+	render: function () {
 
 		if (!this.props.text || this.props.text.length === 0) {
 			console.error("'text' is a required property of Dropdown."); //eslint-disable-line no-console
@@ -188,30 +186,27 @@ var Dropdown = React.createClass({
 module.exports = Dropdown;
 
 },{"./keys":5,"./menu":6,"classnames":2,"react":"react"}],4:[function(require,module,exports){
-'use strict';
-
 var React = require('react'),
     classNames = require('classnames'),
     keys = require('./keys');
 
 var Item = React.createClass({
-	displayName: 'Item',
 
-	getInitialState: function getInitialState() {
+	getInitialState: function () {
 		return {
 			isFocused: false
 		};
 	},
 
-	handleFocus: function handleFocus() {
+	handleFocus: function () {
 		this.setState({ isFocused: true });
 	},
 
-	handleBlur: function handleBlur() {
+	handleBlur: function () {
 		this.setState({ isFocused: false });
 	},
 
-	handleKeyUp: function handleKeyUp(e) {
+	handleKeyUp: function (e) {
 
 		if (e.keyCode !== keys.SPACE || this.props.isEnabled === false) {
 			return;
@@ -220,7 +215,7 @@ var Item = React.createClass({
 		this.props.action();
 	},
 
-	render: function render() {
+	render: function () {
 
 		var isEnabled = this.props.isEnabled !== false;
 
@@ -255,8 +250,6 @@ Item.getFocusableElement = function (itemNode) {
 module.exports = Item;
 
 },{"./keys":5,"classnames":2,"react":"react"}],5:[function(require,module,exports){
-"use strict";
-
 module.exports = {
 	ENTER: 13,
 	ESCAPE: 27,
@@ -266,7 +259,6 @@ module.exports = {
 };
 
 },{}],6:[function(require,module,exports){
-'use strict';
 
 var React = require('react'),
     Item = require('./item'),
@@ -274,9 +266,8 @@ var React = require('react'),
     keys = require('./keys');
 
 var Menu = React.createClass({
-	displayName: 'Menu',
 
-	componentDidUpdate: function componentDidUpdate(prevProps) {
+	componentDidUpdate: function (prevProps) {
 		if (!prevProps.isVisible && this.props.isVisible) {
 
 			var firstItem = React.findDOMNode(this).querySelector('ul > li');
@@ -288,7 +279,7 @@ var Menu = React.createClass({
 		}
 	},
 
-	handleKeyUp: function handleKeyUp(e) {
+	handleKeyUp: function (e) {
 
 		if (e.keyCode !== keys.DOWN && e.keyCode !== keys.UP && e.keyCode !== keys.ESCAPE) {
 			return;
@@ -314,14 +305,14 @@ var Menu = React.createClass({
 		return;
 	},
 
-	handleKeyDown: function handleKeyDown(e) {
+	handleKeyDown: function (e) {
 		if (e.keyCode === keys.DOWN || e.keyCode === keys.UP) {
 			// prevent scrolling when up/down arrows pressed
 			e.preventDefault();
 		}
 	},
 
-	render: function render() {
+	render: function () {
 
 		var menuClass = classNames({
 			'vui-dropdown-menu': true,
@@ -330,19 +321,19 @@ var Menu = React.createClass({
 
 		var items = this.props.items ? this.props.items : [];
 
-		var list = React.createElement('ul', {}, items.map((function (item) {
+		var list = React.createElement('ul', {}, items.map(function (item) {
 			return React.createElement(Item, {
-				action: (function () {
+				action: function () {
 					if (item.isEnabled === false) {
 						return;
 					}
 					this.props.closeCallback(true);
 					item.action();
-				}).bind(this),
+				}.bind(this),
 				isEnabled: item.isEnabled,
 				text: item.text
 			});
-		}).bind(this)));
+		}.bind(this)));
 
 		return React.createElement('div', {
 			className: menuClass,
