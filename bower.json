@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "vui-button": "~1.1.0",
-    "vui-dropdown": "~0.2.0",
+    "vui-dropdown": "~0.2.1",
     "vui-offscreen": "~0.2.0",
     "vui-typography": "~1.2.0"
   }
