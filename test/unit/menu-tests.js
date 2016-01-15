@@ -26,6 +26,18 @@ describe('menu', function() {
 		}
 	];
 
+	var itemGroups = [[
+		{
+			text: 'First menu item',
+			action: testAction
+		}
+	],[
+		{
+			text: 'Second menu item',
+			action: testAction
+		}
+	]];
+
 	it('has class name', function() {
 
 		var menu = TestUtils.renderIntoDocument(
@@ -185,6 +197,17 @@ describe('menu', function() {
 		);
 
 		expect(called).toBe(false);
+
+	});
+
+	it('renders separator between item groups', function() {
+
+		var menu = TestUtils.renderIntoDocument(
+			<Menu items={itemGroups} isVisible={true}/>
+		);
+
+		expect(ReactDOM.findDOMNode(menu).firstChild.childNodes[1].getAttribute('role')).toBe('separator');
+
 
 	});
 

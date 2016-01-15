@@ -1,6 +1,7 @@
 
 var React = require('react'),
 	Item = require('./item'),
+	Separator = require('./separator'),
 	classNames = require('classnames'),
 	keys = require('./keys');
 
@@ -14,9 +15,37 @@ var Menu = React.createClass( {
 				return;
 			}
 
-			Item.getFocusableElement(firstItem).focus();
+			Item.tryGetFocusableElement(firstItem).focus();
 
 		}
+	},
+
+	getNextFocusable: function(node) {
+
+		while (node.nextSibling) {
+			var nextFocusable = Item.tryGetFocusableElement(node.nextSibling);
+			if (nextFocusable) {
+				return nextFocusable;
+			}
+			node = node.nextSibling;
+		}
+
+		return Item.tryGetFocusableElement(node.parentNode.firstChild);
+
+	},
+
+	getPreviousFocusable: function(node) {
+
+		while (node.previousSibling) {
+			var previousFocusable = Item.tryGetFocusableElement(node.previousSibling);
+			if (previousFocusable) {
+				return previousFocusable;
+			}
+			node = node.previousSibling;
+		}
+
+		return Item.tryGetFocusableElement(node.parentNode.lastChild);
+
 	},
 
 	handleKeyUp: function(e) {
@@ -27,17 +56,9 @@ var Menu = React.createClass( {
 
 		var parentNode = e.target.parentNode;
 		if (e.keyCode === keys.DOWN) {
-			if (parentNode.nextSibling) {
-				Item.getFocusableElement(parentNode.nextSibling).focus();
-			} else {
-				Item.getFocusableElement(parentNode.parentNode.firstChild).focus();
-			}
+			this.getNextFocusable(parentNode).focus();
 		} else if (e.keyCode === keys.UP) {
-			if (parentNode.previousSibling) {
-				Item.getFocusableElement(parentNode.previousSibling).focus();
-			} else {
-				Item.getFocusableElement(parentNode.parentNode.lastChild).focus();
-			}
+			this.getPreviousFocusable(parentNode).focus();
 		} else if (e.keyCode === keys.ESCAPE) {
 			this.props.closeCallback(true);
 		}
@@ -62,24 +83,40 @@ var Menu = React.createClass( {
 
 		var items = this.props.items ? this.props.items : [];
 
-		var list = React.createElement(
-			'ul', {},
-			items.map(function(item) {
-				return React.createElement(
-					Item, {
-						action: function() {
-							if (item.isEnabled === false) {
-								return;
-							}
-							this.props.closeCallback(true);
-							item.action();
-						}.bind(this),
-						isEnabled: item.isEnabled,
-						text: item.text
+		var createItemComponent = function(item) {
+			return React.createElement(
+				Item, {
+					action: function() {
+						if (item.isEnabled === false) {
+							return;
+						}
+						this.props.closeCallback(true);
+						item.action();
+					}.bind(this),
+					isEnabled: item.isEnabled,
+					text: item.text
+				}
+			);
+		}.bind(this);
+
+		var itemComponents = items.map(function(item, itemIndex) {
+
+			if (item.constructor === Array) {
+				return item.map(function(groupItem, groupItemIndex) {
+					if (itemIndex !== items.length - 1 && groupItemIndex === item.length - 1) {
+						return [
+							createItemComponent(groupItem),
+							React.createElement(Separator)
+						];
+					} else {
+						return createItemComponent(groupItem);
 					}
-				);
-			}.bind(this))
-		);
+				}.bind(this));
+			} else {
+				return createItemComponent(item);
+			}
+
+		}.bind(this));
 
 		return React.createElement(
 			'div', {
@@ -88,7 +125,10 @@ var Menu = React.createClass( {
 				onKeyUp: this.handleKeyUp,
 				role: 'menu'
 			},
-			list
+			React.createElement(
+				'ul', {},
+				itemComponents
+			)
 		);
 
 	}

@@ -8,7 +8,7 @@ var React = require('react'),
 	keys = require('../../src/keys'),
 	Item = require('../../src/item');
 
-describe('menu', function() {
+describe('item', function() {
 
 	it('has class name', function() {
 
