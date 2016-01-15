@@ -1,4 +1,3 @@
-@import url(https://s.brightspace.com/lib/fonts/0.2.0/fonts.css);
 .vui-dropdown {
   display: inline-block;
   position: relative;
@@ -146,8 +145,9 @@
 .vui-dropdown-menu {
   background-color: #fff;
   border-radius: 0.4rem;
-  box-shadow: 0 2px 12px 0 #d3d9e3;
-  min-width: 12.5rem;
+  box-shadow: 0 2px 12px 0 rgba(86, 90, 92, 0.2);
+  min-width: 3.5rem;
+  max-width: 18.5rem;
   display: none;
   left: 0;
   position: absolute;
@@ -167,6 +167,7 @@
   border-top: 1px solid #d3d9e3;
   border-left: 1px solid #d3d9e3;
   border-right: 1px solid #d3d9e3;
+  line-height: 0;
 }
 
 .vui-dropdown-menu > ul > li:first-child {
@@ -180,6 +181,14 @@
   border-bottom: 1px solid #d3d9e3;
 }
 
+.vui-dropdown-menu > ul > li[role='separator'] {
+  border: 0;
+}
+
+.vui-dropdown-menu > ul > li[role='separator'] + li {
+  border-top: 1px solid #b9c2d0;
+}
+
 [dir="rtl"] .vui-dropdown-menu {
   right: 0;
 }
@@ -191,14 +200,16 @@
 .vui-dropdown-menu-item > a {
   display: inline-block;
   line-height: 1.5rem;
-  padding-top: 0.55rem;
-  padding-bottom: 0.55rem;
+  overflow-x: hidden;
+  padding: 0.75rem 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
 }
 
 .vui-dropdown-menu-item > a, .vui-dropdown-menu-item > a:visited, .vui-dropdown-menu-item > a:link, .vui-dropdown-menu-item > a:active {
   color: #006fbf;
-  font-weight: normal;
+  font-weight: 300;
   text-decoration: none;
   cursor: pointer;
 }
@@ -222,7 +233,8 @@
   border: 1px solid #99c5e5;
 }
 
-.vui-dropdown-menu-item.vui-dropdown-menu-item-focus + li {
+.vui-dropdown-menu-item.vui-dropdown-menu-item-focus + li,
+.vui-dropdown-menu-item.vui-dropdown-menu-item-focus + li[role='separator'] + li {
   border-top-width: 0;
 }
 

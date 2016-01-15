@@ -18,13 +18,13 @@
 	background-position: right center;
 	background-repeat: no-repeat;
 	display: inline-block;
-	padding-right: px-to-base-rem(35px);
+	padding-right: 1.75rem;
 	min-height: 10px;
 	min-width: 16px;
 
 	[dir='rtl'] & {
 		background-position: left center;
-		padding-left: px-to-base-rem(35px);
+		padding-left: 1.75rem;
 		padding-right: 0;
 	}
 

@@ -1,6 +1,6 @@
 {
   "name": "react-vui-dropdown",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React component for a dropdown menu.",
   "main": "index.js",
   "scripts": {
@@ -78,7 +78,8 @@
       "index.js": true,
       "src/dropdown.js": true,
       "src/menu.js": true,
-      "src/item.js": true
+      "src/item.js": true,
+      "src/separator.js": true
     }
   }
 }
