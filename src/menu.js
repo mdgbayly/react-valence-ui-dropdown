@@ -10,7 +10,36 @@ var Menu = React.createClass( {
 	componentDidUpdate: function(prevProps) {
 		if (!prevProps.isVisible && this.props.isVisible) {
 
-			var firstItem = React.findDOMNode(this).querySelector('ul > li');
+			var menuElement = React.findDOMNode(this);
+			var menuRect = menuElement.getBoundingClientRect();
+
+			var openerElement = menuElement.previousSibling;
+			var openerRect = openerElement.getBoundingClientRect();
+
+			var spaceBelow = document.documentElement.clientHeight - menuRect.top;
+			if ((spaceBelow - menuRect.height) < 0) {
+				if (openerRect.top > spaceBelow) {
+					menuElement.className += ' vui-dropdown-menu-flip-x';
+				}
+			}
+
+			if (document.body.getAttribute('dir') !== 'rtl') {
+				var spaceRight = document.documentElement.clientWidth - openerRect.left;
+				if ((spaceRight - menuRect.width) < 0) {
+					if (openerRect.right > spaceRight) {
+						menuElement.className += ' vui-dropdown-menu-flip-y';
+					}
+				}
+			} else {
+				if ((menuRect.right - menuRect.width) < 0) {
+					var spaceRight = document.documentElement.clientWidth - openerRect.left;
+					if (spaceRight > openerRect.right) {
+						menuElement.className += ' vui-dropdown-menu-flip-y';
+					}
+				}
+			}
+
+			var firstItem = menuElement.querySelector('ul > li');
 			if (!firstItem) {
 				return;
 			}
