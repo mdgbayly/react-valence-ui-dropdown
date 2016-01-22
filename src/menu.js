@@ -32,8 +32,8 @@ var Menu = React.createClass( {
 				}
 			} else {
 				if ((menuRect.right - menuRect.width) < 0) {
-					var spaceRight = document.documentElement.clientWidth - openerRect.left;
-					if (spaceRight > openerRect.right) {
+					var spaceRightRTL = document.documentElement.clientWidth - openerRect.left;
+					if (spaceRightRTL > openerRect.right) {
 						menuElement.className += ' vui-dropdown-menu-flip-y';
 					}
 				}
