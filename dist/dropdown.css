@@ -190,7 +190,23 @@
 }
 
 [dir="rtl"] .vui-dropdown-menu {
+  left: auto;
   right: 0;
+}
+
+.vui-dropdown-menu-flip-x {
+  top: auto;
+  bottom: 2.6rem;
+}
+
+.vui-dropdown-menu-flip-y {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .vui-dropdown-menu-flip-y {
+  left: 0;
+  right: auto;
 }
 
 .vui-dropdown-menu-visible {
