@@ -1,0 +1,50 @@
+
+.vui-button-menu {
+
+	@include vui-button;
+
+}
+
+.vui-button-menu-primary {
+
+	@include vui-button-primary;
+
+}
+
+.vui-button-menu-content {
+
+	background-image: $vui-dropdown-tungsten;
+	background-position: right center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	padding-right: 1.4rem;
+	min-height: 10px;
+	min-width: 18px;
+
+	[dir='rtl'] & {
+		background-position: left center;
+		padding-left: 1.4rem;
+		padding-right: 0;
+	}
+
+}
+
+.vui-button-menu-primary > .vui-button-menu-content {
+
+	background-image: $vui-dropdown-white;
+
+}
+
+.vui-button-menu-text-hidden {
+
+	& > span {
+		@include vui-offscreen;
+	}
+
+	padding-right: 0;
+
+	[dir='rtl'] & {
+		padding-left: 0;
+	}
+
+}

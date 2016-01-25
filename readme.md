@@ -38,14 +38,21 @@ The dropdown takes the following properties:
 * `items`: optional array of items for the menu
 
 ```javascript
+var dropdown = require('react-vui-dropdown'),
+	ButtonMenu = dropdown.ButtonMenu,
+	ContextMenu = dropdown.ContextMenu;
+
 var items = [
 	{ "text": "Action Item 1", "action": someFunction},
 	{ "text": "Action Item 2", "action": someFunction, "isEnabled": false}
 ];
 
-<Dropdown text="Stuff" items={items} />
+<ButtonMenu text="Stuff" items={items} />
 
-<Dropdown text="Stuff" items={items} disabled />
+<ButtonMenu text="Stuff" items={items} disabled />
+
+<ContextMenu text="Stuff" items={items} />
+
 ```
 
 ## Contributing

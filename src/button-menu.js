@@ -4,7 +4,7 @@ var React = require('react'),
 	classNames = require('classnames'),
 	keys = require('./keys');
 
-var Dropdown = React.createClass({
+var ButtonMenu = React.createClass({
 
 	getDefaultProps: function() {
 		return {
@@ -91,26 +91,29 @@ var Dropdown = React.createClass({
 	render: function() {
 
 		if (!this.props.text || this.props.text.length === 0) {
-			console.error("'text' is a required property of Dropdown."); //eslint-disable-line no-console
+			console.error("'text' is a required property of ButtonMenu."); //eslint-disable-line no-console
 			return;
 		}
 
+		var buttonClass;
+		if (this.props.openerClassName) {
+			buttonClass = this.props.openerClassName;
+		} else {
+			buttonClass = classNames({
+				'vui-button-menu': true,
+				'vui-button-menu-primary': this.props.isPrimary
+			});
+		}
+
 		var contentClass = classNames({
-			'vui-dropdown-text': true,
-			'vui-dropdown-text-hidden': !this.props.isTextVisible
+			'vui-button-menu-content': true,
+			'vui-button-menu-text-hidden': !this.props.isTextVisible
 		});
 
-		var menu = React.createElement(
-			Menu, {
-				closeCallback: this.closeMenu,
-				items: this.props.items,
-				isVisible: this.state.isMenuVisible
-			}
-		);
-
-		var button = React.createElement(
+		var opener = React.createElement(
 			'button', {
 				'aria-haspopup': 'true',
+				className: buttonClass,
 				disabled: this.props.disabled,
 				onClick: this.toggleMenuVisibility,
 				onKeyDown: this.handleKeyDown,
@@ -126,21 +129,24 @@ var Dropdown = React.createClass({
 			)
 		);
 
-		var className = classNames({
-			'vui-dropdown': true,
-			'vui-dropdown-primary': this.props.isPrimary
-		});
+		var menu = React.createElement(
+			Menu, {
+				closeCallback: this.closeMenu,
+				items: this.props.items,
+				isVisible: this.state.isMenuVisible
+			}
+		);
 
 		return React.createElement(
 			'div', {
-				className: className,
+				className: 'vui-dropdown',
 				onBlur: this.handleBlur
 			},
-			[ button, menu ]
+			[ opener, menu ]
 		);
 
 	}
 
 });
 
-module.exports = Dropdown;
+module.exports = ButtonMenu;
