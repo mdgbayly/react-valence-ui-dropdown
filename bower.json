@@ -14,8 +14,6 @@
     "postcss.config.json"
   ],
   "dependencies": {
-    "vui-button": "~1.2.0",
-    "vui-dropdown": "~0.4.0",
-    "vui-offscreen": "~0.3.0"
+    "vui-dropdown": "~0.5.0"
   }
 }

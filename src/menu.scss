@@ -6,7 +6,8 @@
 	display: none;
 	left: 0;
 	position: absolute;
-	top: 2.6rem;
+	top: 2.1rem;
+	margin-top: 0.5rem;
 	z-index: 1001;
 
 	[dir="rtl"] & {
@@ -18,7 +19,9 @@
 
 .vui-dropdown-menu-flip-x {
 	top: auto;
-	bottom: 2.6rem;
+	bottom: 2.1rem;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
 }
 
 .vui-dropdown-menu-flip-y {
