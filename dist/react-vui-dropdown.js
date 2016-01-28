@@ -2,13 +2,14 @@
 'use strict';
 
 var dropdown = {
+	ButtonOpener: require('./src/button-opener'),
 	ButtonMenu: require('./src/button-menu'),
 	ContextMenu: require('./src/context-menu')
 };
 
 module.exports = dropdown;
 
-},{"./src/button-menu":3,"./src/context-menu":4}],2:[function(require,module,exports){
+},{"./src/button-menu":3,"./src/button-opener":4,"./src/context-menu":5}],2:[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -61,11 +62,54 @@ module.exports = dropdown;
 },{}],3:[function(require,module,exports){
 
 var React = require('react'),
-    Menu = require('./menu'),
-    classNames = require('classnames'),
-    keys = require('./keys');
+    ButtonOpener = require('./button-opener'),
+    classNames = require('classnames');
 
 var ButtonMenu = React.createClass({
+
+	getDefaultProps: function () {
+		return {
+			disabled: false,
+			isPrimary: false,
+			isTextVisible: true,
+			items: []
+		};
+	},
+
+	render: function () {
+
+		if (!this.props.text || this.props.text.length === 0) {
+			console.error("'text' is a required property of ButtonMenu."); //eslint-disable-line no-console
+			return;
+		}
+
+		var buttonClass = classNames({
+			'vui-button-menu': true,
+			'vui-button-menu-primary': this.props.isPrimary
+		});
+
+		var contentClass = classNames({
+			'vui-button-menu-content': true,
+			'vui-button-menu-text-hidden': !this.props.isTextVisible
+		});
+
+		return React.createElement(ButtonOpener, {
+			className: buttonClass,
+			disabled: this.props.disabled,
+			items: this.props.items
+		}, React.createElement('span', { className: contentClass }, React.createElement('span', {}, this.props.text)));
+	}
+
+});
+
+module.exports = ButtonMenu;
+
+},{"./button-opener":4,"classnames":2,"react":"react"}],4:[function(require,module,exports){
+var React = require('react'),
+    Menu = require('./menu'),
+    keys = require('./keys');
+
+var ButtonOpener = React.createClass({
 
 	getDefaultProps: function () {
 		return {
@@ -149,34 +193,14 @@ var ButtonMenu = React.createClass({
 
 	render: function () {
 
-		if (!this.props.text || this.props.text.length === 0) {
-			console.error("'text' is a required property of ButtonMenu."); //eslint-disable-line no-console
-			return;
-		}
-
-		var buttonClass;
-		if (this.props.openerClassName) {
-			buttonClass = this.props.openerClassName;
-		} else {
-			buttonClass = classNames({
-				'vui-button-menu': true,
-				'vui-button-menu-primary': this.props.isPrimary
-			});
-		}
-
-		var contentClass = classNames({
-			'vui-button-menu-content': true,
-			'vui-button-menu-text-hidden': !this.props.isTextVisible
-		});
-
 		var opener = React.createElement('button', {
 			'aria-haspopup': 'true',
-			className: buttonClass,
+			className: this.props.className,
 			disabled: this.props.disabled,
 			onClick: this.toggleMenuVisibility,
 			onKeyDown: this.handleKeyDown,
 			onKeyUp: this.handleKeyUp
-		}, React.createElement('span', { className: contentClass }, React.createElement('span', {}, this.props.text)));
+		}, this.props.children);
 
 		var menu = React.createElement(Menu, {
 			closeCallback: this.closeMenu,
@@ -192,32 +216,34 @@ var ButtonMenu = React.createClass({
 
 });
 
-module.exports = ButtonMenu;
+module.exports = ButtonOpener;
 
-},{"./keys":6,"./menu":7,"classnames":2,"react":"react"}],4:[function(require,module,exports){
+},{"./keys":7,"./menu":8,"react":"react"}],5:[function(require,module,exports){
 
 var React = require('react'),
-    ButtonMenu = require('./button-menu');
+    ButtonOpener = require('./button-opener');
 
 var ContextMenu = React.createClass({
 
 	render: function () {
 
-		return React.createElement(ButtonMenu, {
+		if (!this.props.text || this.props.text.length === 0) {
+			console.error("'text' is a required property of ContextMenu."); //eslint-disable-line no-console
+			return;
+		}
+
+		return React.createElement(ButtonOpener, {
+			className: 'vui-context-menu',
 			disabled: this.props.disabled,
-			isPrimary: false,
-			isTextVisible: false,
-			items: this.props.items,
-			openerClassName: 'vui-context-menu',
-			text: this.props.text
-		});
+			items: this.props.items
+		}, React.createElement('span', {}, this.props.text));
 	}
 
 });
 
 module.exports = ContextMenu;
 
-},{"./button-menu":3,"react":"react"}],5:[function(require,module,exports){
+},{"./button-opener":4,"react":"react"}],6:[function(require,module,exports){
 var React = require('react'),
     classNames = require('classnames'),
     keys = require('./keys');
@@ -284,7 +310,7 @@ Item.tryGetFocusableElement = function (itemNode) {
 
 module.exports = Item;
 
-},{"./keys":6,"classnames":2,"react":"react"}],6:[function(require,module,exports){
+},{"./keys":7,"classnames":2,"react":"react"}],7:[function(require,module,exports){
 module.exports = {
 	ENTER: 13,
 	ESCAPE: 27,
@@ -293,7 +319,7 @@ module.exports = {
 	DOWN: 40
 };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 
 var React = require('react'),
     Item = require('./item'),
@@ -445,7 +471,7 @@ var Menu = React.createClass({
 
 module.exports = Menu;
 
-},{"./item":5,"./keys":6,"./separator":8,"classnames":2,"react":"react"}],8:[function(require,module,exports){
+},{"./item":6,"./keys":7,"./separator":9,"classnames":2,"react":"react"}],9:[function(require,module,exports){
 var React = require('react');
 
 var Separator = React.createClass({

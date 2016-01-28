@@ -15,6 +15,7 @@
 	@include vui-dropdown-button-menu-primary-content;
 }
 
+.vui-button-menu-primary > .vui-button-menu-text-hidden,
 .vui-button-menu-text-hidden {
 	@include vui-dropdown-button-menu-text-hidden;
 }

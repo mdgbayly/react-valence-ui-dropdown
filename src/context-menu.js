@@ -1,21 +1,28 @@
 
 var React = require('react'),
-	ButtonMenu = require('./button-menu');
+	ButtonOpener = require('./button-opener');
 
 var ContextMenu = React.createClass({
 
 	render: function() {
 
+		if (!this.props.text || this.props.text.length === 0) {
+			console.error("'text' is a required property of ContextMenu."); //eslint-disable-line no-console
+			return;
+		}
+
 		return React.createElement(
-				ButtonMenu, {
-					disabled: this.props.disabled,
-					isPrimary: false,
-					isTextVisible: false,
-					items: this.props.items,
-					openerClassName: 'vui-context-menu',
-					text: this.props.text
-				}
-			);
+			ButtonOpener, {
+				className: 'vui-context-menu',
+				disabled: this.props.disabled,
+				items: this.props.items
+			},
+			React.createElement(
+				'span',
+				{},
+				this.props.text
+			)
+		);
 
 	}
 

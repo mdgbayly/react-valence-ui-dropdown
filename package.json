@@ -1,6 +1,6 @@
 {
   "name": "react-vui-dropdown",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "React component for a dropdown menu.",
   "main": "index.js",
   "scripts": {
@@ -76,6 +76,7 @@
     ],
     "collectCoverageOnlyFrom": {
       "index.js": true,
+      "src/button-opener.js": true,
       "src/button-menu.js": true,
       "src/context-menu.js": true,
       "src/menu.js": true,

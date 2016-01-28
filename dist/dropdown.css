@@ -133,10 +133,12 @@
   padding-right: 0;
 }
 
+.vui-button-menu-primary > .vui-button-menu-text-hidden,
 .vui-button-menu-text-hidden {
   padding-right: 0;
 }
 
+.vui-button-menu-primary > .vui-button-menu-text-hidden > span,
 .vui-button-menu-text-hidden > span {
   position: absolute !important;
   left: -10000px;
@@ -145,12 +147,14 @@
   height: 1px;
 }
 
-[dir="rtl"] .vui-button-menu-text-hidden > span {
+[dir="rtl"] .vui-button-menu-primary > .vui-button-menu-text-hidden > span, [dir="rtl"]
+.vui-button-menu-text-hidden > span {
   left: auto;
   right: -10000px;
 }
 
-[dir='rtl'] .vui-button-menu-text-hidden {
+[dir='rtl'] .vui-button-menu-primary > .vui-button-menu-text-hidden, [dir='rtl']
+.vui-button-menu-text-hidden {
   padding-left: 0;
 }
 
