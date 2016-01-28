@@ -2,7 +2,3 @@
 .vui-context-menu {
 	@include vui-dropdown-context-menu;
 }
-
-.vui-context-menu > span {
-	@include vui-dropdown-context-menu-icon;
-}
