@@ -6,8 +6,9 @@
 	display: none;
 	left: 0;
 	position: absolute;
-	top: 2.6rem;
-	z-index: 100;
+	top: 2.1rem;
+	margin-top: $vui-dropdown-menu-offset;
+	z-index: 1001;
 
 	[dir="rtl"] & {
 		left: auto;
@@ -18,7 +19,9 @@
 
 .vui-dropdown-menu-flip-x {
 	top: auto;
-	bottom: 2.6rem;
+	bottom: 2.1rem;
+	margin-top: 0;
+	margin-bottom: $vui-dropdown-menu-offset;
 }
 
 .vui-dropdown-menu-flip-y {

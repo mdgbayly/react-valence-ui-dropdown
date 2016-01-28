@@ -1,1 +1,1 @@
---ignore=adjoining-classes,import,box-sizing,important
+--ignore=adjoining-classes,import,box-sizing,important,unqualified-attributes,box-model,duplicate-background-images

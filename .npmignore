@@ -1,10 +1,10 @@
 .editorconfig
 .eslintrc
+.csslintrc
 .gitattributes
 .gitignore
 .npmignore
 .travis.yml
 bower_components
 node_modules
-karma.conf.js
 test
