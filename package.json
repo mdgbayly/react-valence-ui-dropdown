@@ -1,6 +1,6 @@
 {
   "name": "react-vui-dropdown",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "React component for a dropdown menu.",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,9 @@
     "clean": "rimraf dist && mkdir dist",
     "postinstall": "bower install",
     "report-coverage": "coveralls < ./coverage/lcov.info",
-    "test:lint:css": "csslint ./dist/*.css",
     "test:lint:js": "eslint --ext .js --ext .jsx ./src",
     "test:unit": "jest --coverage",
-    "test": "npm run build && npm run test:lint:css && npm run test:lint:js && npm run test:unit"
+    "test": "npm run build && npm run test:lint:js && npm run test:unit"
   },
   "repository": {
     "type": "git",
@@ -47,7 +46,6 @@
     "babel-jest": "^5.3.0",
     "browserify": "^11.0.1",
     "coveralls": "^2.11.4",
-    "csslint": "^0.10.0",
     "eslint": "^1.8.0",
     "eslint-config-brightspace": "0.0.3",
     "eslint-plugin-react": "^3.6.3",
