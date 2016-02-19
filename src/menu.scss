@@ -36,5 +36,5 @@
 
 .vui-dropdown-menu-visible {
 	display: inline-block;
-	animation: vui-dropdown-menu-animation-show 200ms ease;
+	@include vui-dropdown-menu-animation;
 }

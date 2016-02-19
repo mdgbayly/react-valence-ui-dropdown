@@ -1,7 +1,7 @@
-@keyframes vui-dropdown-menu-animation-show {
+@keyframes vui-dropdown-menu-animation-frames {
   0% {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
     opacity: 0;
   }
   100% {
@@ -278,7 +278,7 @@
 
 .vui-dropdown-menu-visible {
   display: inline-block;
-  animation: vui-dropdown-menu-animation-show 200ms ease;
+  animation: vui-dropdown-menu-animation-frames 300ms ease;
 }
 
 .vui-dropdown-menu-item > a {
