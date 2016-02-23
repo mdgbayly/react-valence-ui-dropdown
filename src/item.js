@@ -35,7 +35,7 @@ var Item = React.createClass( {
 		var link = React.createElement(
 			'a', {
 				'aria-disabled': !isEnabled,
-				href: isEnabled ? 'javascript:void(0);' : null,
+				href: 'javascript:void(0);',
 				onClick: isEnabled ? this.props.action : null,
 				onFocus: this.handleFocus,
 				onBlur: this.handleBlur,
