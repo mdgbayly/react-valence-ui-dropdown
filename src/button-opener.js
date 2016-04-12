@@ -1,6 +1,7 @@
 var React = require('react'),
 	Menu = require('./menu'),
-	keys = require('./keys');
+	keys = require('./keys'),
+	classNames = require('classnames');
 
 var ButtonOpener = React.createClass({
 
@@ -108,9 +109,14 @@ var ButtonOpener = React.createClass({
 			}
 		);
 
+		var className = classNames({
+			'vui-dropdown': true,
+			'vui-dropdown-open': this.state.isMenuVisible
+		});
+
 		return React.createElement(
 			'div', {
-				className: 'vui-dropdown',
+				className: className,
 				onBlur: this.handleBlur
 			},
 			[ opener, menu ]

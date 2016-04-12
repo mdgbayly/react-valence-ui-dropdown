@@ -15,6 +15,6 @@
     "postcss.config.json"
   ],
   "dependencies": {
-    "vui-dropdown": "~0.5.1"
+    "vui-dropdown": "~0.6.0"
   }
 }
