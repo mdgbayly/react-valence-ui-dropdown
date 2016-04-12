@@ -2,3 +2,7 @@
 .vui-context-menu {
 	@include vui-dropdown-context-menu;
 }
+
+.vui-dropdown-open .vui-context-menu {
+	@include vui-dropdown-context-menu-open;
+}
