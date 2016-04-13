@@ -107,7 +107,8 @@ module.exports = ButtonMenu;
 },{"./button-opener":4,"classnames":2,"react":"react"}],4:[function(require,module,exports){
 var React = require('react'),
     Menu = require('./menu'),
-    keys = require('./keys');
+    keys = require('./keys'),
+    classNames = require('classnames');
 
 var ButtonOpener = React.createClass({
 
@@ -208,8 +209,13 @@ var ButtonOpener = React.createClass({
 			isVisible: this.state.isMenuVisible
 		});
 
+		var className = classNames({
+			'vui-dropdown': true,
+			'vui-dropdown-open': this.state.isMenuVisible
+		});
+
 		return React.createElement('div', {
-			className: 'vui-dropdown',
+			className: className,
 			onBlur: this.handleBlur
 		}, [opener, menu]);
 	}
@@ -218,7 +224,7 @@ var ButtonOpener = React.createClass({
 
 module.exports = ButtonOpener;
 
-},{"./keys":7,"./menu":8,"react":"react"}],5:[function(require,module,exports){
+},{"./keys":7,"./menu":8,"classnames":2,"react":"react"}],5:[function(require,module,exports){
 
 var React = require('react'),
     ButtonOpener = require('./button-opener');
@@ -279,7 +285,7 @@ var Item = React.createClass({
 
 		var link = React.createElement('a', {
 			'aria-disabled': !isEnabled,
-			href: isEnabled ? 'javascript:void(0);' : null,
+			href: 'javascript:void(0);',
 			onClick: isEnabled ? this.props.action : null,
 			onFocus: this.handleFocus,
 			onBlur: this.handleBlur,
