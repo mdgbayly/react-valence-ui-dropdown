@@ -31,11 +31,11 @@ describe('button-opener', function() {
 	it('has class name', function() {
 
 		var buttonOpener = TestUtils.renderIntoDocument(
-			<ButtonOpener text="Stuff" className="test-opener" items={items}/>
+			<ButtonOpener text="Stuff" className="test-opener" items={items} dropdownType="test-dropdown"/>
 		);
 
 		expect(ReactDOM.findDOMNode(buttonOpener).className)
-			.toBe('vui-dropdown');
+			.toBe('test-dropdown');
 
 		expect(ReactDOM.findDOMNode(buttonOpener).firstChild.className)
 			.toBe('test-opener');
@@ -98,7 +98,7 @@ describe('button-opener', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(buttonOpener).firstChild, 
+			ReactDOM.findDOMNode(buttonOpener).firstChild,
 			{keyCode: keys.DOWN}
 		);
 
@@ -113,7 +113,7 @@ describe('button-opener', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(buttonOpener).firstChild, 
+			ReactDOM.findDOMNode(buttonOpener).firstChild,
 			{keyCode: keys.DOWN}
 		);
 
@@ -140,14 +140,14 @@ describe('button-opener', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(buttonOpener).firstChild, 
+			ReactDOM.findDOMNode(buttonOpener).firstChild,
 			{keyCode: keys.DOWN}
 		);
 
 		expect(buttonOpener.state.isMenuVisible).toBe(true);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(buttonOpener).firstChild, 
+			ReactDOM.findDOMNode(buttonOpener).firstChild,
 			{keyCode: keys.UP}
 		);
 
@@ -162,14 +162,14 @@ describe('button-opener', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(buttonOpener).firstChild, 
+			ReactDOM.findDOMNode(buttonOpener).firstChild,
 			{keyCode: keys.DOWN}
 		);
 
 		expect(buttonOpener.state.isMenuVisible).toBe(true);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(buttonOpener).childNodes[1], 
+			ReactDOM.findDOMNode(buttonOpener).childNodes[1],
 			{keyCode: keys.ESCAPE}
 		);
 
