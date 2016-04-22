@@ -237,7 +237,6 @@
   display: none;
   left: 0;
   position: absolute;
-  top: 1.5rem;
   margin-top: 0.5rem;
   z-index: 1001;
 }

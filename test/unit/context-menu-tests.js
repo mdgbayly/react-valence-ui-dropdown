@@ -28,7 +28,7 @@ describe('context-menu', function() {
 		);
 
 		expect(ReactDOM.findDOMNode(contextMenu).className)
-			.toBe('vui-dropdown-context-menu');
+			.toBe('vui-dropdown');
 
 		expect(ReactDOM.findDOMNode(contextMenu).firstChild.className)
 			.toBe('vui-context-menu');

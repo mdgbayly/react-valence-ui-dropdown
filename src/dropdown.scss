@@ -3,19 +3,3 @@
 	display: inline-block;
 	position: relative;
 }
-
-.vui-dropdown-button-menu {
-	@extend .vui-dropdown;
-}
-
-.vui-dropdown-button-menu > .vui-dropdown-menu {
-	top: 2.1rem;
-}
-
-.vui-dropdown-context-menu {
-	@extend .vui-dropdown;
-}
-
-.vui-dropdown-context-menu > .vui-dropdown-menu {
-	top: 1.5rem;
-}

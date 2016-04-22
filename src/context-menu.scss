@@ -6,7 +6,3 @@
 .vui-dropdown-open .vui-context-menu {
 	@include vui-dropdown-context-menu-open;
 }
-
-.vui-dropdown-context-menu > .vui-dropdown-menu {
-	top: 1.5rem;
-}
