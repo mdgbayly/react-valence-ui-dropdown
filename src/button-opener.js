@@ -109,8 +109,7 @@ var ButtonOpener = React.createClass({
 			}
 		);
 
-		var className = classNames({
-			'vui-dropdown': true,
+		var className = classNames( this.props.menuType, {
 			'vui-dropdown-open': this.state.isMenuVisible
 		});
 

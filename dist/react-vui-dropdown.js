@@ -96,7 +96,8 @@ var ButtonMenu = React.createClass({
 		return React.createElement(ButtonOpener, {
 			className: buttonClass,
 			disabled: this.props.disabled,
-			items: this.props.items
+			items: this.props.items,
+			menuType: 'vui-dropdown-button'
 		}, React.createElement('span', { className: contentClass }, React.createElement('span', {}, this.props.text)));
 	}
 
@@ -209,8 +210,7 @@ var ButtonOpener = React.createClass({
 			isVisible: this.state.isMenuVisible
 		});
 
-		var className = classNames({
-			'vui-dropdown': true,
+		var className = classNames(this.props.menuType, {
 			'vui-dropdown-open': this.state.isMenuVisible
 		});
 
@@ -241,7 +241,8 @@ var ContextMenu = React.createClass({
 		return React.createElement(ButtonOpener, {
 			className: 'vui-context-menu',
 			disabled: this.props.disabled,
-			items: this.props.items
+			items: this.props.items,
+			menuType: 'vui-dropdown-context'
 		}, React.createElement('span', {}, this.props.text));
 	}
 

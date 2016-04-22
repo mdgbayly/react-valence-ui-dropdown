@@ -11,9 +11,33 @@
   }
 }
 
-.vui-dropdown {
+.vui-dropdown-context, .vui-dropdown-button {
   display: inline-block;
   position: relative;
+}
+
+.vui-dropdown-context .vui-dropdown-menu {
+  top: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.vui-dropdown-context .vui-dropdown-menu-flip-x {
+  top: auto;
+  bottom: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.vui-dropdown-button .vui-dropdown-menu {
+  top: 2.1rem;
+  margin-top: 0.5rem;
+}
+
+.vui-dropdown-button .vui-dropdown-menu-flip-x {
+  top: auto;
+  bottom: 2.1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .vui-button-menu {
@@ -225,8 +249,6 @@
   display: none;
   left: 0;
   position: absolute;
-  top: 2.1rem;
-  margin-top: 0.5rem;
   z-index: 1001;
 }
 
@@ -267,13 +289,6 @@
 [dir="rtl"] .vui-dropdown-menu {
   left: auto;
   right: 0;
-}
-
-.vui-dropdown-menu-flip-x {
-  top: auto;
-  bottom: 2.1rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
 }
 
 .vui-dropdown-menu-flip-y {
