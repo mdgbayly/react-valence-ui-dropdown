@@ -16,7 +16,7 @@ var ContextMenu = React.createClass({
 				className: 'vui-context-menu',
 				disabled: this.props.disabled,
 				items: this.props.items,
-				menuType: 'vui-dropdown-context'
+				openerType: 'vui-dropdown-context'
 			},
 			React.createElement(
 				'span',

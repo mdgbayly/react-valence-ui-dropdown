@@ -31,7 +31,7 @@ describe('button-opener', function() {
 	it('has class name', function() {
 
 		var buttonOpener = TestUtils.renderIntoDocument(
-			<ButtonOpener text="Stuff" className="test-opener" items={items} menuType='test-menu'/>
+			<ButtonOpener text="Stuff" className="test-opener" items={items} openerType='test-menu'/>
 		);
 
 		expect(ReactDOM.findDOMNode(buttonOpener).className)
