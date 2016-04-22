@@ -1,13 +1,11 @@
 
 .vui-dropdown-menu {
 
-	@include vui-dropdown-menu; 
+	@include vui-dropdown-menu;
 
 	display: none;
 	left: 0;
 	position: absolute;
-	top: 2.1rem;
-	margin-top: $vui-dropdown-menu-offset;
 	z-index: 1001;
 
 	[dir="rtl"] & {
@@ -15,13 +13,6 @@
 		right: 0;
 	}
 
-}
-
-.vui-dropdown-menu-flip-x {
-	top: auto;
-	bottom: 2.1rem;
-	margin-top: 0;
-	margin-bottom: $vui-dropdown-menu-offset;
 }
 
 .vui-dropdown-menu-flip-y {
