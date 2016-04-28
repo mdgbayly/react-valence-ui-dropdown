@@ -105,7 +105,8 @@ var ButtonOpener = React.createClass({
 			Menu, {
 				closeCallback: this.closeMenu,
 				items: this.props.items,
-				isVisible: this.state.isMenuVisible
+				isVisible: this.state.isMenuVisible,
+				menuProps: this.props.menuProps
 			}
 		);
 

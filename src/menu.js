@@ -113,8 +113,9 @@ var Menu = React.createClass( {
 		var items = this.props.items ? this.props.items : [];
 
 		var createItemComponent = function(item) {
+
 			return React.createElement(
-				Item, {
+				Item,	{
 					action: function() {
 						if (item.isEnabled === false) {
 							return;
@@ -123,7 +124,8 @@ var Menu = React.createClass( {
 						item.action();
 					}.bind(this),
 					isEnabled: item.isEnabled,
-					text: item.text
+					text: item.text,
+					ownProps: item.ownProps
 				}
 			);
 		}.bind(this);
@@ -147,13 +149,22 @@ var Menu = React.createClass( {
 
 		}.bind(this));
 
+		var menuProps = {
+			className: menuClass,
+			onKeyDown: this.handleKeyDown,
+			onKeyUp: this.handleKeyUp,
+			role: 'menu'
+		};
+
+		if (typeof this.props.menuProps === 'object') {
+			for (var k in this.props.menuProps) {
+				menuProps[k] = this.props.menuProps[k];
+			}
+		}
+
 		return React.createElement(
-			'div', {
-				className: menuClass,
-				onKeyDown: this.handleKeyDown,
-				onKeyUp: this.handleKeyUp,
-				role: 'menu'
-			},
+			'div',
+			menuProps,
 			React.createElement(
 				'ul', {},
 				itemComponents

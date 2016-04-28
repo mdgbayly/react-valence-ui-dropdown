@@ -207,7 +207,8 @@ var ButtonOpener = React.createClass({
 		var menu = React.createElement(Menu, {
 			closeCallback: this.closeMenu,
 			items: this.props.items,
-			isVisible: this.state.isMenuVisible
+			isVisible: this.state.isMenuVisible,
+			menuProps: this.props.menuProps
 		});
 
 		var className = classNames(this.props.openerType, {
@@ -242,7 +243,8 @@ var ContextMenu = React.createClass({
 			className: 'vui-context-menu',
 			disabled: this.props.disabled,
 			items: this.props.items,
-			openerType: 'vui-dropdown-context'
+			openerType: 'vui-dropdown-context',
+			menuProps: this.props.menuProps
 		}, React.createElement('span', {}, this.props.text));
 	}
 
@@ -284,6 +286,8 @@ var Item = React.createClass({
 
 		var isEnabled = this.props.isEnabled !== false;
 
+		var image = React.createElement('span');
+
 		var link = React.createElement('a', {
 			'aria-disabled': !isEnabled,
 			href: 'javascript:void(0);',
@@ -300,10 +304,18 @@ var Item = React.createClass({
 			'vui-dropdown-menu-item-focus': this.state.isFocused
 		});
 
-		return React.createElement('li', {
+		var listItemProps = {
 			className: itemClass,
 			role: 'menuitem'
-		}, link);
+		};
+
+		if (typeof this.props.ownProps === 'object') {
+			for (var k in this.props.ownProps) {
+				listItemProps[k] = this.props.ownProps[k];
+			}
+		}
+
+		return React.createElement('li', listItemProps, image, link);
 	}
 
 });
@@ -438,6 +450,7 @@ var Menu = React.createClass({
 		var items = this.props.items ? this.props.items : [];
 
 		var createItemComponent = function (item) {
+
 			return React.createElement(Item, {
 				action: function () {
 					if (item.isEnabled === false) {
@@ -447,7 +460,8 @@ var Menu = React.createClass({
 					item.action();
 				}.bind(this),
 				isEnabled: item.isEnabled,
-				text: item.text
+				text: item.text,
+				ownProps: item.ownProps
 			});
 		}.bind(this);
 
@@ -466,12 +480,20 @@ var Menu = React.createClass({
 			}
 		}.bind(this));
 
-		return React.createElement('div', {
+		var menuProps = {
 			className: menuClass,
 			onKeyDown: this.handleKeyDown,
 			onKeyUp: this.handleKeyUp,
 			role: 'menu'
-		}, React.createElement('ul', {}, itemComponents));
+		};
+
+		if (typeof this.props.menuProps === 'object') {
+			for (var k in this.props.menuProps) {
+				menuProps[k] = this.props.menuProps[k];
+			}
+		}
+
+		return React.createElement('div', menuProps, React.createElement('ul', {}, itemComponents));
 	}
 
 });
