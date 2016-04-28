@@ -77,4 +77,11 @@ var Item = React.createClass( {
 
 } );
 
+Item.tryGetFocusableElement = function(itemNode) {
+	if (!itemNode.childNodes[1] || !itemNode.childNodes[1].focus) {
+		return false;
+	}
+	return itemNode.childNodes[1];
+};
+
 module.exports = Item;

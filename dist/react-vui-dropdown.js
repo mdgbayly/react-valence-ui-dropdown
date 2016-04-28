@@ -321,6 +321,13 @@ var Item = React.createClass({
 
 });
 
+Item.tryGetFocusableElement = function (itemNode) {
+	if (!itemNode.childNodes[1] || !itemNode.childNodes[1].focus) {
+		return false;
+	}
+	return itemNode.childNodes[1];
+};
+
 module.exports = Item;
 
 },{"./keys":7,"classnames":2,"react":"react"}],7:[function(require,module,exports){
