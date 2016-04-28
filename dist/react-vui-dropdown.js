@@ -97,7 +97,8 @@ var ButtonMenu = React.createClass({
 			className: buttonClass,
 			disabled: this.props.disabled,
 			items: this.props.items,
-			openerType: 'vui-dropdown-button'
+			openerType: 'vui-dropdown-button',
+			menuProps: this.props.menuProps
 		}, React.createElement('span', { className: contentClass }, React.createElement('span', {}, this.props.text)));
 	}
 
@@ -319,13 +320,6 @@ var Item = React.createClass({
 	}
 
 });
-
-Item.tryGetFocusableElement = function (itemNode) {
-	if (!itemNode.firstChild || !itemNode.firstChild.focus) {
-		return false;
-	}
-	return itemNode.firstChild;
-};
 
 module.exports = Item;
 
