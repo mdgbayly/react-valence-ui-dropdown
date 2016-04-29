@@ -464,7 +464,9 @@ var Menu = React.createClass({
 					if (item.isEnabled === false) {
 						return;
 					}
-					this.props.closeCallback(true);
+					if (typeof this.props.menuProps !== 'object' || !!this.props.menuProps.autoClose) {
+						this.props.closeCallback(true);
+					}
 					item.action();
 				}.bind(this),
 				isEnabled: item.isEnabled,
