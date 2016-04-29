@@ -103,6 +103,10 @@ var Menu = React.createClass( {
 		}
 	},
 
+	itemKey: function(itemIndex, groupItemIndex) {
+		return itemIndex + ':' + groupItemIndex;
+	},
+
 	render: function() {
 
 		var menuClass = classNames({
@@ -112,10 +116,11 @@ var Menu = React.createClass( {
 
 		var items = this.props.items ? this.props.items : [];
 
-		var createItemComponent = function(item) {
+		var createItemComponent = function(item, key) {
 
 			return React.createElement(
 				Item,	{
+					key: key,
 					action: function() {
 						if (item.isEnabled === false) {
 							return;
@@ -136,15 +141,15 @@ var Menu = React.createClass( {
 				return item.map(function(groupItem, groupItemIndex) {
 					if (itemIndex !== items.length - 1 && groupItemIndex === item.length - 1) {
 						return [
-							createItemComponent(groupItem),
+							createItemComponent(groupItem, this.itemKey(itemIndex, groupItemIndex)),
 							React.createElement(Separator)
 						];
 					} else {
-						return createItemComponent(groupItem);
+						return createItemComponent(groupItem, this.itemKey(itemIndex, groupItemIndex));
 					}
 				}.bind(this));
 			} else {
-				return createItemComponent(item);
+				return createItemComponent(item, this.itemKey(itemIndex, 0));
 			}
 
 		}.bind(this));

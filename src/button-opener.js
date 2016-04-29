@@ -91,6 +91,7 @@ var ButtonOpener = React.createClass({
 
 		var opener = React.createElement(
 			'button', {
+				key: 'opener',
 				'aria-haspopup': 'true',
 				className: this.props.className,
 				disabled: this.props.disabled,
@@ -103,6 +104,7 @@ var ButtonOpener = React.createClass({
 
 		var menu = React.createElement(
 			Menu, {
+				key: 'menu',
 				closeCallback: this.closeMenu,
 				items: this.props.items,
 				isVisible: this.state.isMenuVisible,

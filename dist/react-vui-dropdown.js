@@ -197,6 +197,7 @@ var ButtonOpener = React.createClass({
 	render: function () {
 
 		var opener = React.createElement('button', {
+			key: 'opener',
 			'aria-haspopup': 'true',
 			className: this.props.className,
 			disabled: this.props.disabled,
@@ -206,6 +207,7 @@ var ButtonOpener = React.createClass({
 		}, this.props.children);
 
 		var menu = React.createElement(Menu, {
+			key: 'menu',
 			closeCallback: this.closeMenu,
 			items: this.props.items,
 			isVisible: this.state.isMenuVisible,
@@ -322,7 +324,7 @@ var Item = React.createClass({
 });
 
 Item.tryGetFocusableElement = function (itemNode) {
-	if (!itemNode.childNodes[1] || !itemNode.childNodes[1].focus) {
+	if (itemNode.childNodes.length < 2 || !itemNode.childNodes[1] || !itemNode.childNodes[1].focus) {
 		return false;
 	}
 	return itemNode.childNodes[1];
@@ -441,6 +443,10 @@ var Menu = React.createClass({
 		}
 	},
 
+	itemKey: function (itemIndex, groupItemIndex) {
+		return itemIndex + ':' + groupItemIndex;
+	},
+
 	render: function () {
 
 		var menuClass = classNames({
@@ -450,9 +456,10 @@ var Menu = React.createClass({
 
 		var items = this.props.items ? this.props.items : [];
 
-		var createItemComponent = function (item) {
+		var createItemComponent = function (item, key) {
 
 			return React.createElement(Item, {
+				key: key,
 				action: function () {
 					if (item.isEnabled === false) {
 						return;
@@ -471,13 +478,13 @@ var Menu = React.createClass({
 			if (item.constructor === Array) {
 				return item.map(function (groupItem, groupItemIndex) {
 					if (itemIndex !== items.length - 1 && groupItemIndex === item.length - 1) {
-						return [createItemComponent(groupItem), React.createElement(Separator)];
+						return [createItemComponent(groupItem, this.itemKey(itemIndex, groupItemIndex)), React.createElement(Separator)];
 					} else {
-						return createItemComponent(groupItem);
+						return createItemComponent(groupItem, this.itemKey(itemIndex, groupItemIndex));
 					}
 				}.bind(this));
 			} else {
-				return createItemComponent(item);
+				return createItemComponent(item, this.itemKey(itemIndex, 0));
 			}
 		}.bind(this));
 

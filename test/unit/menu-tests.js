@@ -94,7 +94,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu), 
+			ReactDOM.findDOMNode(menu),
 			{keyCode: keys.ESCAPE}
 		);
 
@@ -109,7 +109,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].firstChild, 
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].childNodes[1],
 			{keyCode: keys.DOWN}
 		);
 
@@ -124,7 +124,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].firstChild, 
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].childNodes[1],
 			{keyCode: keys.DOWN}
 		);
 
@@ -139,7 +139,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].firstChild, 
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].childNodes[1],
 			{keyCode: keys.UP}
 		);
 
@@ -154,7 +154,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].firstChild, 
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].childNodes[1],
 			{keyCode: keys.UP}
 		);
 
@@ -174,7 +174,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.click(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].firstChild
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].childNodes[1]
 		);
 
 		expect(called).toBe(true);
@@ -193,7 +193,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.click(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].firstChild
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].childNodes[1]
 		);
 
 		expect(called).toBe(false);
@@ -208,8 +208,6 @@ describe('menu', function() {
 
 		expect(ReactDOM.findDOMNode(menu).firstChild.childNodes[1].getAttribute('role')).toBe('separator');
 
-
 	});
 
 });
-

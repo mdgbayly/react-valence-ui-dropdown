@@ -1,5 +1,3 @@
-'use strict';
-
 jest.dontMock('../../src/item');
 
 var React = require('react'),
@@ -7,7 +5,7 @@ var React = require('react'),
 	TestUtils = require('react-addons-test-utils'),
 	keys = require('../../src/keys'),
 	Item = require('../../src/item');
-
+	
 describe('item', function() {
 
 	it('has class name', function() {
@@ -49,7 +47,7 @@ describe('item', function() {
 			<Item />
 		);
 
-		expect(ReactDOM.findDOMNode(item).firstChild.getAttribute('aria-disabled'))
+		expect(ReactDOM.findDOMNode(item).childNodes[1].getAttribute('aria-disabled'))
 			.toBe('false');
 
 	});
@@ -60,7 +58,7 @@ describe('item', function() {
 			<Item isEnabled={false} />
 		);
 
-		expect(ReactDOM.findDOMNode(item).firstChild.getAttribute('aria-disabled'))
+		expect(ReactDOM.findDOMNode(item).childNodes[1].getAttribute('aria-disabled'))
 			.toBe('true');
 
 	});
@@ -72,7 +70,7 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.focus(
-			ReactDOM.findDOMNode(item).firstChild,
+			ReactDOM.findDOMNode(item).childNodes[1]
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
@@ -87,14 +85,14 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.focus(
-			ReactDOM.findDOMNode(item).firstChild,
+			ReactDOM.findDOMNode(item).childNodes[1]
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
 			.toBe('vui-dropdown-menu-item vui-dropdown-menu-item-focus');
 
 		TestUtils.Simulate.blur(
-			ReactDOM.findDOMNode(item).firstChild,
+			ReactDOM.findDOMNode(item).childNodes[1]
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
@@ -107,14 +105,14 @@ describe('item', function() {
 		var called = false;
 		var actionCallback = function() {
 			called = true;
-		}
+		};
 
 		var item = TestUtils.renderIntoDocument(
 			<Item isEnabled={false} action={actionCallback} />
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(item).firstChild, 
+			ReactDOM.findDOMNode(item).childNodes[1],
 			{keyCode: keys.SPACE}
 		);
 
@@ -127,14 +125,14 @@ describe('item', function() {
 		var called = false;
 		var actionCallback = function() {
 			called = true;
-		}
+		};
 
 		var item = TestUtils.renderIntoDocument(
 			<Item isEnabled={true} action={actionCallback} />
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(item).firstChild, 
+			ReactDOM.findDOMNode(item).childNodes[1],
 			{keyCode: keys.SPACE}
 		);
 
@@ -143,4 +141,3 @@ describe('item', function() {
 	});
 
 });
-
