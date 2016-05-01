@@ -83,7 +83,7 @@ Item.tryGetFocusableElement = function(itemNode) {
 	if (!itemNode.firstChild || !itemNode.firstChild.focus) {
 		return false;
 	}
-	return itemNode.firstChid;
+	return itemNode.firstChild;
 };
 
 module.exports = Item;
