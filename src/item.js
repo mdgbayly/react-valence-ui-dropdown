@@ -46,6 +46,7 @@ var Item = React.createClass( {
 				onKeyUp: this.handleKeyUp,
 				tabIndex: -1
 			},
+			image,
 			this.props.text
 		);
 
@@ -69,7 +70,6 @@ var Item = React.createClass( {
 		return React.createElement(
 			'li',
 			listItemProps,
-			image,
 			link
 		);
 
@@ -78,10 +78,10 @@ var Item = React.createClass( {
 } );
 
 Item.tryGetFocusableElement = function(itemNode) {
-	if (itemNode.childNodes.length < 2 || !itemNode.childNodes[1] || !itemNode.childNodes[1].focus) {
+	if (!itemNode.firstChild || !itemNode.firstChild.focus) {
 		return false;
 	}
-	return itemNode.childNodes[1];
+	return itemNode.firstChid;
 };
 
 module.exports = Item;
