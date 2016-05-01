@@ -124,7 +124,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.firstChild.firstChild,
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].firstChild,
 			{keyCode: keys.DOWN}
 		);
 
