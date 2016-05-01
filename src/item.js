@@ -33,7 +33,9 @@ var Item = React.createClass( {
 		var isEnabled = (this.props.isEnabled !== false);
 
 		var image = React.createElement(
-			'span'
+			'span', {
+				className: 'image'
+			}
 		);
 
 		var link = React.createElement(
