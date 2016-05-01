@@ -5,7 +5,7 @@ var React = require('react'),
 	TestUtils = require('react-addons-test-utils'),
 	keys = require('../../src/keys'),
 	Item = require('../../src/item');
-	
+
 describe('item', function() {
 
 	it('has class name', function() {
@@ -47,7 +47,7 @@ describe('item', function() {
 			<Item />
 		);
 
-		expect(ReactDOM.findDOMNode(item).childNodes[1].getAttribute('aria-disabled'))
+		expect(ReactDOM.findDOMNode(item).firstChild.getAttribute('aria-disabled'))
 			.toBe('false');
 
 	});
@@ -58,7 +58,7 @@ describe('item', function() {
 			<Item isEnabled={false} />
 		);
 
-		expect(ReactDOM.findDOMNode(item).childNodes[1].getAttribute('aria-disabled'))
+		expect(ReactDOM.findDOMNode(item).firstChild.getAttribute('aria-disabled'))
 			.toBe('true');
 
 	});
@@ -70,7 +70,7 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.focus(
-			ReactDOM.findDOMNode(item).childNodes[1]
+			ReactDOM.findDOMNode(item).firstChild
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
@@ -85,14 +85,14 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.focus(
-			ReactDOM.findDOMNode(item).childNodes[1]
+			ReactDOM.findDOMNode(item).firstChild
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
 			.toBe('vui-dropdown-menu-item vui-dropdown-menu-item-focus');
 
 		TestUtils.Simulate.blur(
-			ReactDOM.findDOMNode(item).childNodes[1]
+			ReactDOM.findDOMNode(item).firstChild
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
@@ -112,7 +112,7 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(item).childNodes[1],
+			ReactDOM.findDOMNode(item).firstChild,
 			{keyCode: keys.SPACE}
 		);
 
@@ -132,7 +132,7 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(item).childNodes[1],
+			ReactDOM.findDOMNode(item).firstChild,
 			{keyCode: keys.SPACE}
 		);
 

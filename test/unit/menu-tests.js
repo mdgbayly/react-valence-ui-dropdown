@@ -109,7 +109,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].childNodes[1],
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].firstChild,
 			{keyCode: keys.DOWN}
 		);
 
@@ -124,7 +124,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].childNodes[1],
+			ReactDOM.findDOMNode(menu).firstChild.firstChild.firstChild,
 			{keyCode: keys.DOWN}
 		);
 
@@ -139,7 +139,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].childNodes[1],
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].firstChild,
 			{keyCode: keys.UP}
 		);
 
@@ -154,7 +154,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.keyUp(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].childNodes[1],
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].firstChild,
 			{keyCode: keys.UP}
 		);
 
@@ -174,7 +174,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.click(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].childNodes[1]
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[0].firstChild
 		);
 
 		expect(called).toBe(true);
@@ -193,7 +193,7 @@ describe('menu', function() {
 		);
 
 		TestUtils.Simulate.click(
-			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].childNodes[1]
+			ReactDOM.findDOMNode(menu).firstChild.childNodes[1].firstChild
 		);
 
 		expect(called).toBe(false);

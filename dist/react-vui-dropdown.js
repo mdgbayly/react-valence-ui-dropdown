@@ -289,7 +289,9 @@ var Item = React.createClass({
 
 		var isEnabled = this.props.isEnabled !== false;
 
-		var image = React.createElement('span');
+		var image = React.createElement('span', {
+			className: 'image'
+		});
 
 		var link = React.createElement('a', {
 			'aria-disabled': !isEnabled,
@@ -299,7 +301,7 @@ var Item = React.createClass({
 			onBlur: this.handleBlur,
 			onKeyUp: this.handleKeyUp,
 			tabIndex: -1
-		}, this.props.text);
+		}, image, this.props.text);
 
 		var itemClass = classNames({
 			'vui-dropdown-menu-item': true,
@@ -318,16 +320,16 @@ var Item = React.createClass({
 			}
 		}
 
-		return React.createElement('li', listItemProps, image, link);
+		return React.createElement('li', listItemProps, link);
 	}
 
 });
 
 Item.tryGetFocusableElement = function (itemNode) {
-	if (itemNode.childNodes.length < 2 || !itemNode.childNodes[1] || !itemNode.childNodes[1].focus) {
+	if (!itemNode.firstChild || !itemNode.firstChild.focus) {
 		return false;
 	}
-	return itemNode.childNodes[1];
+	return itemNode.firstChild;
 };
 
 module.exports = Item;
