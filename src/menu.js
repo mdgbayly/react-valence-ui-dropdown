@@ -159,7 +159,8 @@ var Menu = React.createClass( {
 		var menuProps = {
 			className: menuClass,
 			onKeyDown: this.handleKeyDown,
-			onKeyUp: this.handleKeyUp
+			onKeyUp: this.handleKeyUp,
+			role: 'menu'
 		};
 
 		if (typeof this.props.menuProps === 'object') {
@@ -172,9 +173,7 @@ var Menu = React.createClass( {
 			'div',
 			menuProps,
 			React.createElement(
-				'ul', {
-					role: 'menu'
-				},
+				'ul', {},
 				itemComponents
 			)
 		);
