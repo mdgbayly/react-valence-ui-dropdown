@@ -173,7 +173,9 @@ var Menu = React.createClass( {
 			'div',
 			menuProps,
 			React.createElement(
-				'ul', {},
+				'ul', {
+					role: 'menu'
+				},
 				itemComponents
 			)
 		);
