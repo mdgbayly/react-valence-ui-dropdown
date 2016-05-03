@@ -159,8 +159,7 @@ var Menu = React.createClass( {
 		var menuProps = {
 			className: menuClass,
 			onKeyDown: this.handleKeyDown,
-			onKeyUp: this.handleKeyUp,
-			role: 'menu'
+			onKeyUp: this.handleKeyUp
 		};
 
 		if (typeof this.props.menuProps === 'object') {
