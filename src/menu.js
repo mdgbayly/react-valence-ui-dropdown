@@ -97,8 +97,8 @@ var Menu = React.createClass( {
 	},
 
 	handleKeyDown: function(e) {
-		if (e.keyCode === keys.DOWN || e.keyCode === keys.UP || e.keyCode === keys.ENTER) {
-			// prevent scrolling when up/down arrows pressed
+		if (e.keyCode === keys.DOWN || e.keyCode === keys.UP || e.keyCode === keys.SPACE) {
+			// prevent scrolling when up/down arrows/space pressed
 			e.preventDefault();
 		}
 	},
