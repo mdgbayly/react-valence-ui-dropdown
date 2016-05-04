@@ -290,7 +290,7 @@ var Item = React.createClass({
 		var isEnabled = this.props.isEnabled !== false;
 
 		var image = React.createElement('span', {
-			className: 'image'
+			className: 'vui-dropdown-menu-item-image'
 		});
 
 		var link = React.createElement('a', {

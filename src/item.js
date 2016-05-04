@@ -34,7 +34,7 @@ var Item = React.createClass( {
 
 		var image = React.createElement(
 			'span', {
-				className: 'image'
+				className: 'vui-dropdown-menu-item-image'
 			}
 		);
 
