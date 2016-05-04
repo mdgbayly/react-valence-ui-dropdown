@@ -1,3 +1,5 @@
+'use strict';
+
 jest.dontMock('../../src/item');
 
 var React = require('react'),
@@ -70,7 +72,7 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.focus(
-			ReactDOM.findDOMNode(item).firstChild
+			ReactDOM.findDOMNode(item).firstChild,
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
@@ -85,14 +87,14 @@ describe('item', function() {
 		);
 
 		TestUtils.Simulate.focus(
-			ReactDOM.findDOMNode(item).firstChild
+			ReactDOM.findDOMNode(item).firstChild,
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
 			.toBe('vui-dropdown-menu-item vui-dropdown-menu-item-focus');
 
 		TestUtils.Simulate.blur(
-			ReactDOM.findDOMNode(item).firstChild
+			ReactDOM.findDOMNode(item).firstChild,
 		);
 
 		expect(ReactDOM.findDOMNode(item).className)
@@ -105,7 +107,7 @@ describe('item', function() {
 		var called = false;
 		var actionCallback = function() {
 			called = true;
-		};
+		}
 
 		var item = TestUtils.renderIntoDocument(
 			<Item isEnabled={false} action={actionCallback} />
@@ -125,7 +127,7 @@ describe('item', function() {
 		var called = false;
 		var actionCallback = function() {
 			called = true;
-		};
+		}
 
 		var item = TestUtils.renderIntoDocument(
 			<Item isEnabled={true} action={actionCallback} />

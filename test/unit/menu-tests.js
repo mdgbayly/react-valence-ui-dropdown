@@ -208,6 +208,7 @@ describe('menu', function() {
 
 		expect(ReactDOM.findDOMNode(menu).firstChild.childNodes[1].getAttribute('role')).toBe('separator');
 
+
 	});
 
 });
