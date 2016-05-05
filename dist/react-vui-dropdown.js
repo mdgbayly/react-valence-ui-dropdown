@@ -293,16 +293,6 @@ var Item = React.createClass({
 			className: 'vui-dropdown-menu-item-image'
 		});
 
-		var link = React.createElement('a', {
-			'aria-disabled': !isEnabled,
-			href: 'javascript:void(0);',
-			onClick: isEnabled ? this.props.action : null,
-			onFocus: this.handleFocus,
-			onBlur: this.handleBlur,
-			onKeyUp: this.handleKeyUp,
-			tabIndex: -1
-		}, image, this.props.text);
-
 		var itemClass = classNames({
 			'vui-dropdown-menu-item': true,
 			'vui-dropdown-menu-item-disabled': !isEnabled,
@@ -311,7 +301,13 @@ var Item = React.createClass({
 
 		var listItemProps = {
 			className: itemClass,
-			role: 'menuitem'
+			role: 'menuitem',
+			'aria-disabled': !isEnabled,
+			onClick: isEnabled ? this.props.action : null,
+			onFocus: this.handleFocus,
+			onBlur: this.handleBlur,
+			onKeyUp: this.handleKeyUp,
+			tabIndex: -1
 		};
 
 		if (typeof this.props.ownProps === 'object') {
@@ -320,16 +316,16 @@ var Item = React.createClass({
 			}
 		}
 
-		return React.createElement('li', listItemProps, link);
+		return React.createElement('li', listItemProps, image, this.props.text);
 	}
 
 });
 
 Item.tryGetFocusableElement = function (itemNode) {
-	if (!itemNode.firstChild || !itemNode.firstChild.focus) {
+	if (!itemNode || !itemNode.focus) {
 		return false;
 	}
-	return itemNode.firstChild;
+	return itemNode;
 };
 
 module.exports = Item;
