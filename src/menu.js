@@ -1,5 +1,6 @@
 
 var React = require('react'),
+	ReactDOM = require('react-dom'),
 	Item = require('./item'),
 	Separator = require('./separator'),
 	classNames = require('classnames'),
@@ -10,7 +11,7 @@ var Menu = React.createClass( {
 	componentDidUpdate: function(prevProps) {
 		if (!prevProps.isVisible && this.props.isVisible) {
 
-			var menuElement = React.findDOMNode(this);
+			var menuElement = ReactDOM.findDOMNode(this);
 			var menuRect = menuElement.getBoundingClientRect();
 
 			var openerElement = menuElement.previousSibling;

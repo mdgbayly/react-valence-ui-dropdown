@@ -1,4 +1,5 @@
 var React = require('react'),
+	ReactDOM = require('react-dom'),
 	Menu = require('./menu'),
 	keys = require('./keys'),
 	classNames = require('classnames');
@@ -30,7 +31,7 @@ var ButtonOpener = React.createClass({
 	},
 
 	focus: function() {
-		var button = React.findDOMNode(this).querySelector('button');
+		var button = ReactDOM.findDOMNode(this).querySelector('button');
 		button.focus();
 	},
 
@@ -43,7 +44,7 @@ var ButtonOpener = React.createClass({
 			}
 
 			var parentNode = document.activeElement.parentNode;
-			var menuNode = React.findDOMNode(this);
+			var menuNode = ReactDOM.findDOMNode(this);
 
 			while (parentNode) {
 				if (parentNode === menuNode) {
